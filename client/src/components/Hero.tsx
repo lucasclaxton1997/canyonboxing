@@ -4,7 +4,7 @@ import heroImage from "@assets/generated_images/boxer_training_at_grand_canyon_s
 
 export function Hero() {
   return (
-    <section className="relative h-screen w-full overflow-hidden flex items-center justify-center pt-20">
+    <section className="relative min-h-screen w-full overflow-hidden flex items-center justify-center">
       {/* Background Image with Overlay */}
       <div className="absolute inset-0 z-0">
         <div className="absolute inset-0 bg-gradient-to-t from-background via-background/40 to-transparent z-10" />
@@ -18,7 +18,7 @@ export function Hero() {
       </div>
 
       {/* Content */}
-      <div className="relative z-20 container mx-auto px-6 text-center">
+      <div className="relative z-20 container mx-auto px-6 text-center py-24">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
