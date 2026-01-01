@@ -26,7 +26,7 @@ export function Hero() {
           className="max-w-[95vw] md:max-w-4xl mx-auto"
         >
           <h1 className="text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-heading font-bold text-white mb-6 uppercase tracking-tighter leading-tight italic overflow-visible" data-testid="text-hero-headline">
-            <span className="block mb-2">The Sweet Science</span>
+            <span className="inline-block whitespace-nowrap mb-2">The Sweet Science</span> <br />
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-red to-brand-orange inline-block px-2">
               On Route 66
             </span>
