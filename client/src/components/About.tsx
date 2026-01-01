@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import coachImage from "@assets/generated_images/professional_boxing_coach_portrait.png";
+import coachImage from "@assets/IMG_0691_1767233211002.jpeg";
 
 export function About() {
   return (
@@ -23,7 +23,8 @@ export function About() {
               <img 
                 src={coachImage} 
                 alt="Lucas Claxton" 
-                className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700"
+                className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700 object-[75%_center]"
+                data-testid="img-coach-lucas"
               />
               <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/90 to-transparent p-6">
                 <h3 className="text-2xl font-heading font-bold text-white uppercase italic">Lucas Claxton</h3>
