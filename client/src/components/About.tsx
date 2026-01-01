@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import coachImage from "@assets/IMG_0691_1767233211002.jpeg";
+import trainingImage from "@assets/generated_images/boxing_padwork_action_shot.png";
 
 export function About() {
   return (
@@ -21,14 +21,14 @@ export function About() {
             <div className="absolute -inset-4 bg-brand-red/20 blur-xl rounded-full opacity-50" />
             <div className="relative aspect-[3/4] w-full max-w-md mx-auto md:mr-auto overflow-hidden border border-white/10">
               <img 
-                src={coachImage} 
-                alt="Lucas Claxton" 
-                className="w-full h-full object-cover transition-all duration-700 object-[75%_center] saturate-50 brightness-75"
-                data-testid="img-coach-lucas"
+                src={trainingImage} 
+                alt="Boxing training on Route 66" 
+                className="w-full h-full object-cover transition-all duration-700 saturate-50 brightness-75"
+                data-testid="img-route66-training"
               />
               <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/90 to-transparent p-6">
-                <h3 className="text-2xl font-heading font-bold text-white uppercase italic">Lucas Claxton</h3>
-                <p className="text-brand-orange font-bold text-sm tracking-wider uppercase">Head Coach & Founder</p>
+                <h3 className="text-2xl font-heading font-bold text-white uppercase italic">Route 66 Original</h3>
+                <p className="text-brand-orange font-bold text-sm tracking-wider uppercase">Northern Arizona's Premier Boxing Club</p>
               </div>
             </div>
           </motion.div>
@@ -41,30 +41,30 @@ export function About() {
             transition={{ duration: 0.8 }}
           >
             <h2 className="text-4xl md:text-5xl font-heading font-bold text-white mb-8 uppercase italic tracking-tighter">
-              Precision. <span className="text-brand-red">Power.</span> <br/> 
-              Personality.
+              The Only Boxing Club <br/>
+              <span className="text-brand-red">On Route 66.</span>
             </h2>
             
             <div className="space-y-6 text-gray-300 text-lg leading-relaxed font-light">
               <p>
-                With over <strong className="text-white">6 years of professional coaching</strong> and more than a decade of ring experience, Lucas Claxton isn't just a trainer—he's a technician of the sport.
+                Canyon Boxing Club stands as the <strong className="text-white">exclusive destination for technical boxing training</strong> along the historic Route 66 corridor in Northern Arizona.
               </p>
               <p>
-                Lucas brings elite technical precision and high-impact training to the rugged heart of Northern Arizona. His coaching philosophy is built on the belief that boxing is for everyone, regardless of age or fitness level.
+                We are dedicated to serving the communities of Williams, Flagstaff, Red Lake, Valle, Bellemont, and Ash Fork. Our mission is to provide high-impact, elite-level training that was previously unavailable in this rugged heart of the Southwest.
               </p>
               <p>
-                Whether you're a beginner learning to wrap your hands or a seasoned fighter refining your footwork, Lucas tailors every session to your physiology and goals. He's known not just for his technical acumen, but for his sociability—making the grueling work of boxing feel like a shared mission.
+                As the only club of its kind in the area, we offer a specialized environment where technical precision meets high-intensity conditioning. Whether you're a local resident or passing through the Gateway to the Grand Canyon, we provide the authentic boxing experience that Northern Arizona deserves.
               </p>
             </div>
 
             <div className="grid grid-cols-2 gap-8 mt-12 border-t border-white/10 pt-8">
               <div>
-                <span className="block text-4xl font-heading font-bold text-white">10+</span>
-                <span className="text-sm text-gray-400 uppercase tracking-widest">Years Experience</span>
+                <span className="block text-4xl font-heading font-bold text-white uppercase">Primary</span>
+                <span className="text-sm text-gray-400 uppercase tracking-widest">Route 66 Location</span>
               </div>
               <div>
-                <span className="block text-4xl font-heading font-bold text-white">6</span>
-                <span className="text-sm text-gray-400 uppercase tracking-widest">Years Pro Coaching</span>
+                <span className="block text-4xl font-heading font-bold text-white uppercase">Full</span>
+                <span className="text-sm text-gray-400 uppercase tracking-widest">Regional Coverage</span>
               </div>
             </div>
           </motion.div>
