@@ -23,7 +23,7 @@ export function About() {
               <img 
                 src={coachImage} 
                 alt="Lucas Claxton" 
-                className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700 object-[75%_center]"
+                className="w-full h-full object-cover transition-all duration-700 object-[75%_center] saturate-50 brightness-75"
                 data-testid="img-coach-lucas"
               />
               <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/90 to-transparent p-6">

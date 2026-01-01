@@ -4,7 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
-import { CreditCard, Calendar, Clock } from "lucide-react";
+import { CreditCard, Calendar, Clock, Phone } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
@@ -13,7 +13,7 @@ import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "
 
 const bookingSchema = z.object({
   name: z.string().min(2, "Name is required"),
-  email: z.string().email("Invalid email address"),
+  phone: z.string().min(10, "Invalid phone number"),
   sessionType: z.enum(["1on1", "group"]),
   duration: z.enum(["30", "60"]),
 });
@@ -34,7 +34,7 @@ export function BookingModal({
     resolver: zodResolver(bookingSchema),
     defaultValues: {
       name: "",
-      email: "",
+      phone: "",
       sessionType: initialType,
       duration: "60",
     },
@@ -88,12 +88,15 @@ export function BookingModal({
                 
                 <FormField
                   control={form.control}
-                  name="email"
+                  name="phone"
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel className="uppercase text-xs font-bold tracking-wider text-gray-400">Email Address</FormLabel>
+                      <FormLabel className="uppercase text-xs font-bold tracking-wider text-gray-400">Phone Number</FormLabel>
                       <FormControl>
-                        <Input placeholder="champ@example.com" {...field} className="bg-zinc-800 border-white/10 text-white rounded-none focus:ring-brand-red" data-testid="input-booking-email" />
+                        <div className="relative">
+                          <Phone className="absolute left-3 top-3 h-4 w-4 text-gray-500" />
+                          <Input placeholder="(555) 000-0000" {...field} className="pl-10 bg-zinc-800 border-white/10 text-white rounded-none focus:ring-brand-red" data-testid="input-booking-phone" />
+                        </div>
                       </FormControl>
                       <FormMessage />
                     </FormItem>

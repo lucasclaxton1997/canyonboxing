@@ -8,7 +8,7 @@ export function Hero() {
       {/* Background Image with Overlay */}
       <div className="absolute inset-0 z-0">
         <div className="absolute inset-0 bg-gradient-to-t from-background via-background/40 to-transparent z-10" />
-        <div className="absolute inset-0 bg-black/30 z-10" />
+        <div className="absolute inset-0 bg-black/40 z-10" />
         <img
           src={heroImage}
           alt="Boxer training at Grand Canyon"
@@ -25,9 +25,9 @@ export function Hero() {
           transition={{ duration: 0.8, ease: "easeOut" }}
           className="max-w-4xl mx-auto"
         >
-          <h1 className="text-5xl md:text-7xl lg:text-8xl font-heading font-bold text-white mb-6 uppercase tracking-tighter leading-none italic" data-testid="text-hero-headline">
+          <h1 className="text-5xl md:text-7xl lg:text-8xl font-heading font-bold text-white mb-6 uppercase tracking-tighter leading-tight italic px-4" data-testid="text-hero-headline">
             The Sweet Science <br />
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-red to-brand-orange">
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-red to-brand-orange whitespace-nowrap">
               On Route 66
             </span>
           </h1>
