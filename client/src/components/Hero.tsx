@@ -35,7 +35,7 @@ export function Hero() {
           <div className="glass-panel inline-block px-8 py-6 mb-8 max-w-2xl mx-auto rounded-sm">
             <p className="text-lg md:text-xl text-gray-200 font-light leading-relaxed" data-testid="text-hero-subtext">
               Master the fundamentals with <strong className="text-white font-bold">Lucas Claxton</strong>, 
-              bringing Singapore-honed technical expertise to the rugged heart of Northern Arizona.
+              bringing elite technical precision and high-impact training to Northern Arizona.
             </p>
           </div>
 

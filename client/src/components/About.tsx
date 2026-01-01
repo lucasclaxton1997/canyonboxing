@@ -50,7 +50,7 @@ export function About() {
                 With over <strong className="text-white">6 years of professional coaching</strong> and more than a decade of ring experience, Lucas Claxton isn't just a trainer—he's a technician of the sport.
               </p>
               <p>
-                Born from a unique blend of Singaporean discipline and American grit, Lucas brings a worldly perspective to the sweet science. His coaching philosophy is built on the belief that boxing is for everyone, regardless of age or fitness level.
+                Lucas brings elite technical precision and high-impact training to the rugged heart of Northern Arizona. His coaching philosophy is built on the belief that boxing is for everyone, regardless of age or fitness level.
               </p>
               <p>
                 Whether you're a beginner learning to wrap your hands or a seasoned fighter refining your footwork, Lucas tailors every session to your physiology and goals. He's known not just for his technical acumen, but for his sociability—making the grueling work of boxing feel like a shared mission.
