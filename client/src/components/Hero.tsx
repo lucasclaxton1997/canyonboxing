@@ -34,8 +34,8 @@ export function Hero() {
           
           <div className="glass-panel inline-block px-8 py-6 mb-8 max-w-2xl mx-auto rounded-sm">
             <p className="text-lg md:text-xl text-gray-200 font-light leading-relaxed" data-testid="text-hero-subtext">
-              Master the fundamentals with <strong className="text-white font-bold">Lucas Claxton</strong>, 
-              bringing elite technical precision and high-impact training to Northern Arizona.
+              Master the fundamentals at Northern Arizona's only dedicated boxing training club, 
+              bringing elite technical precision and high-impact workouts to the historic Route 66 area.
             </p>
           </div>
 
