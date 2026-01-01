@@ -7,8 +7,8 @@ export function Footer() {
         </h2>
         
         <p className="text-gray-400 font-light mb-8 max-w-md mx-auto">
-          The Only Boxing Training Club on Route 66. <br/>
-          Serving Williams, Flagstaff, and Northern Arizona.
+          The Only Boxing Personal Training on Route 66. <br/>
+          Serving Williams, Flagstaff, and the surrounding Northern Arizona area.
         </p>
 
         <div className="flex justify-center space-x-6 mb-8">
