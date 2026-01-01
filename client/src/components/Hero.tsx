@@ -23,11 +23,11 @@ export function Hero() {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, ease: "easeOut" }}
-          className="max-w-4xl mx-auto"
+          className="max-w-[95vw] md:max-w-4xl mx-auto"
         >
-          <h1 className="text-5xl md:text-7xl lg:text-8xl font-heading font-bold text-white mb-6 uppercase tracking-tighter leading-tight italic px-4" data-testid="text-hero-headline">
+          <h1 className="text-5xl md:text-7xl lg:text-8xl font-heading font-bold text-white mb-6 uppercase tracking-tighter leading-tight italic" data-testid="text-hero-headline">
             The Sweet Science <br />
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-red to-brand-orange whitespace-nowrap">
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-red to-brand-orange">
               On Route 66
             </span>
           </h1>
