@@ -25,9 +25,9 @@ export function Hero() {
           transition={{ duration: 0.8, ease: "easeOut" }}
           className="max-w-[95vw] md:max-w-4xl mx-auto"
         >
-          <h1 className="text-5xl md:text-7xl lg:text-8xl font-heading font-bold text-white mb-6 uppercase tracking-tighter leading-tight italic" data-testid="text-hero-headline">
-            The Sweet Science <br />
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-red to-brand-orange">
+          <h1 className="text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-heading font-bold text-white mb-6 uppercase tracking-tighter leading-tight italic overflow-visible" data-testid="text-hero-headline">
+            <span className="block mb-2">The Sweet Science</span>
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-red to-brand-orange inline-block px-2">
               On Route 66
             </span>
           </h1>
