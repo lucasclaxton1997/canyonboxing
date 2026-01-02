@@ -45,10 +45,10 @@ export function MobileService() {
             </h2>
             <div className="space-y-6 text-gray-300 text-lg font-light leading-relaxed max-w-xl">
               <p>
-                Canyon Boxing is a <strong className="text-white">fully mobile personal training service</strong>. We strip away the intimidation of traditional gyms and bring elite technical coaching directly to your doorstep.
+                Canyon Boxing is a <strong className="text-white">fully mobile personal training service</strong>. The intimidation of traditional gyms is stripped away and elite technical coaching is brought directly to your doorstep.
               </p>
               <p>
-                Whether it's your garage, backyard, or local park, we transform any space into a high-performance training camp. This is boxing without boundaries—tailored to your schedule and your environment.
+                Whether it's your garage, backyard, or local park, Canyon Boxing transforms any space into a high-performance training camp. This is boxing without boundaries—tailored to your schedule and your environment.
               </p>
             </div>
           </motion.div>
@@ -80,7 +80,7 @@ export function MobileService() {
             </div>
 
             <div className="mt-10 p-4 bg-brand-red/10 border-l-4 border-brand-red text-sm text-gray-300 italic">
-              "I provide the pads, the program, and the expertise. You provide the grit."
+              "Canyon Boxing provides the pads, the program, and the expertise. You provide the grit."
             </div>
           </motion.div>
         </div>
