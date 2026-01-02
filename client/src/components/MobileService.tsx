@@ -24,7 +24,7 @@ export function MobileService() {
     <section className="py-24 bg-zinc-900 border-t border-white/5 relative overflow-hidden">
       {/* Decorative background text */}
       <div className="absolute top-1/2 left-0 -translate-y-1/2 text-[15rem] font-heading font-black text-white/5 uppercase select-none pointer-events-none whitespace-nowrap">
-        Mobile Elite
+        BILE ELITE
       </div>
 
       <div className="container mx-auto px-6 relative z-10">
