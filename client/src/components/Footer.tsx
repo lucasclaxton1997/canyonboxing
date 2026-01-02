@@ -15,7 +15,7 @@ export function Footer() {
             (602) 946-4446
           </a>
           <p className="text-gray-400 font-light max-w-md mx-auto">
-            Servicing Williams, AZ and surrounding Northern Arizona areas.
+            Serving Williams, AZ and surrounding Northern Arizona areas.
           </p>
         </div>
 
