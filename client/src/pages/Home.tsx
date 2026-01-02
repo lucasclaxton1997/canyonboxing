@@ -2,7 +2,6 @@ import { Navigation } from "@/components/Navigation";
 import { Hero } from "@/components/Hero";
 import { About } from "@/components/About";
 import { MobileService } from "@/components/MobileService";
-import { VideoSection } from "@/components/VideoSection";
 import { Regimen } from "@/components/Regimen";
 import { Testimonials } from "@/components/Testimonials";
 import { Pricing } from "@/components/Pricing";
@@ -15,7 +14,6 @@ export default function Home() {
       <Hero />
       <About />
       <MobileService />
-      <VideoSection />
       <Regimen />
       <Testimonials />
       <Pricing />
