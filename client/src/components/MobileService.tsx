@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { Truck, MapPin, Package, ShieldCheck } from "lucide-react";
+import videoSrc from "@assets/video-output-4E8AFFB4-5A1C-457D-A122-BD3FE5338B76_1767328015012.mp4";
 
 const requirements = [
   {
@@ -22,6 +23,19 @@ const requirements = [
 export function MobileService() {
   return (
     <section className="py-24 bg-zinc-900 border-t border-white/5 relative overflow-hidden">
+      {/* Background Video with Overlay */}
+      <div className="absolute inset-0 z-0 opacity-40">
+        <div className="absolute inset-0 bg-zinc-950/60 z-10" />
+        <video 
+          src={videoSrc}
+          autoPlay 
+          muted 
+          loop 
+          playsInline
+          className="w-full h-full object-cover saturate-50 brightness-50"
+        />
+      </div>
+
       <div className="container mx-auto px-6 relative z-10">
         <div className="grid lg:grid-cols-2 gap-16 items-center">
           <motion.div
