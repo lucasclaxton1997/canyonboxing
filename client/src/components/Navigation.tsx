@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { Menu, X } from "lucide-react";
+import { Menu, X, Phone } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import { motion, AnimatePresence } from "framer-motion";
@@ -57,6 +57,10 @@ export function Navigation() {
               {link.name}
             </a>
           ))}
+          <a href="tel:6029464446" className="flex items-center gap-2 text-white hover:text-brand-red transition-colors font-bold tracking-wider" data-testid="link-nav-phone">
+            <Phone className="w-4 h-4" />
+            (602) 946-4446
+          </a>
           <Button 
             className="bg-brand-red hover:bg-red-700 text-white rounded-none font-bold uppercase tracking-wider px-6"
             onClick={scrollToPricing}
@@ -97,6 +101,10 @@ export function Navigation() {
                   {link.name}
                 </a>
               ))}
+              <a href="tel:6029464446" className="flex items-center gap-2 text-white font-bold py-2" data-testid="link-mobile-phone">
+                <Phone className="w-5 h-5 text-brand-red" />
+                (602) 946-4446
+              </a>
               <Button 
                 className="w-full bg-brand-red text-white rounded-none font-bold uppercase"
                 onClick={scrollToPricing}
