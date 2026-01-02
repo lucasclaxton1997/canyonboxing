@@ -1,10 +1,10 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Dialog, DialogContent } from "@/components/ui/dialog";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
-import { CreditCard, Phone, Calendar, Clock, MapPin } from "lucide-react";
+import { CreditCard, Phone, Calendar, MapPin, Loader2 } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
@@ -15,6 +15,14 @@ import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover
 import { format } from "date-fns";
 import { cn } from "@/lib/utils";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
+import { useMutation, useQuery } from "@tanstack/react-query";
+import { apiRequest } from "@/lib/queryClient";
+
+interface AvailabilityResponse {
+  date: string;
+  availableSlots: string[];
+  bookedSlots: string[];
+}
 
 const bookingSchema = z.object({
   name: z.string().min(2, "Name is required"),
@@ -26,7 +34,7 @@ const bookingSchema = z.object({
   duration: z.enum(["30", "60"]),
 });
 
-const timeSlots = [
+const allTimeSlots = [
   "08:00 AM", "09:00 AM", "10:00 AM", "11:00 AM",
   "01:00 PM", "02:00 PM", "03:00 PM", "04:00 PM",
   "05:00 PM", "06:00 PM"
@@ -43,6 +51,8 @@ export function BookingModal({
 }) {
   const { toast } = useToast();
   const [step, setStep] = useState(1);
+  const [selectedDate, setSelectedDate] = useState<Date | undefined>();
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   const form = useForm<z.infer<typeof bookingSchema>>({
     resolver: zodResolver(bookingSchema),
@@ -57,27 +67,78 @@ export function BookingModal({
   });
 
   // Update session type if it changes via props
-  if (form.getValues("sessionType") !== sessionType) {
+  useEffect(() => {
     form.setValue("sessionType", sessionType);
-  }
+  }, [sessionType, form]);
+
+  // Fetch available time slots when date is selected
+  const { data: availabilityData, isLoading: isLoadingSlots } = useQuery<AvailabilityResponse>({
+    queryKey: ["/api/bookings/availability", selectedDate ? format(selectedDate, "yyyy-MM-dd") : ""],
+    enabled: !!selectedDate,
+  });
+
+  const availableSlots = availabilityData?.availableSlots || allTimeSlots;
+
+  // Booking mutation
+  const bookingMutation = useMutation({
+    mutationFn: async (data: z.infer<typeof bookingSchema>) => {
+      const response = await apiRequest("POST", "/api/bookings", {
+        name: data.name,
+        phone: data.phone,
+        zipcode: data.zipcode,
+        sessionType: data.sessionType,
+        duration: data.duration,
+        date: format(data.date, "yyyy-MM-dd"),
+        time: data.time,
+        depositPaid: true,
+        status: "pending",
+      });
+      return response.json();
+    },
+    onSuccess: () => {
+      toast({
+        title: "Booking Confirmed!",
+        description: "Your $10 deposit has been processed. We'll contact you to confirm.",
+      });
+      form.reset();
+      setStep(1);
+      setSelectedDate(undefined);
+      onClose();
+    },
+    onError: (error: Error) => {
+      const message = error.message.includes("409") 
+        ? "This time slot was just booked. Please select a different time."
+        : "Failed to complete booking. Please try again.";
+      toast({
+        title: "Booking Failed",
+        description: message,
+        variant: "destructive",
+      });
+      if (error.message.includes("409")) {
+        setStep(1);
+      }
+    },
+  });
 
   const onSubmit = (data: z.infer<typeof bookingSchema>) => {
     setStep(2); 
   };
 
   const handlePayment = () => {
-    setTimeout(() => {
-      toast({
-        title: "Booking Confirmed!",
-        description: "Your $10 deposit has been processed. We'll contact you to confirm.",
-      });
-      setStep(1);
-      onClose();
-    }, 1500);
+    setIsSubmitting(true);
+    const formData = form.getValues();
+    bookingMutation.mutate(formData);
+  };
+
+  const handleClose = () => {
+    form.reset();
+    setStep(1);
+    setSelectedDate(undefined);
+    onClose();
   };
 
   return (
-    <Dialog open={isOpen} onOpenChange={onClose}>
+    <Dialog open={isOpen} onOpenChange={handleClose}>
       <DialogContent className="bg-zinc-900 border border-white/10 text-white sm:max-w-[550px] p-0 overflow-y-auto max-h-[90vh]">
         <div className="bg-brand-red p-6 text-center">
           <h2 className="text-2xl font-heading font-bold uppercase italic text-white tracking-tighter">
@@ -172,7 +233,11 @@ export function BookingModal({
                             <CalendarComponent
                               mode="single"
                               selected={field.value}
-                              onSelect={field.onChange}
+                              onSelect={(date) => {
+                                field.onChange(date);
+                                setSelectedDate(date);
+                                form.setValue("time", ""); // Reset time when date changes
+                              }}
                               disabled={(date) =>
                                 date < new Date() || date < new Date("1900-01-01")
                               }
@@ -192,19 +257,31 @@ export function BookingModal({
                   name="time"
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel className="uppercase text-[10px] font-bold tracking-widest text-gray-400">Preferred Time</FormLabel>
-                      <Select onValueChange={field.onChange} defaultValue={field.value}>
+                      <FormLabel className="uppercase text-[10px] font-bold tracking-widest text-gray-400">
+                        Preferred Time
+                        {isLoadingSlots && <Loader2 className="inline ml-2 h-3 w-3 animate-spin" />}
+                      </FormLabel>
+                      <Select onValueChange={field.onChange} value={field.value}>
                         <FormControl>
                           <SelectTrigger className="bg-zinc-800 border-white/10 text-white rounded-none h-10">
-                            <SelectValue placeholder="Select a time slot" />
+                            <SelectValue placeholder={selectedDate ? "Select available time" : "Select a date first"} />
                           </SelectTrigger>
                         </FormControl>
                         <SelectContent className="bg-zinc-900 border-white/10 text-white">
-                          {timeSlots.map((slot) => (
-                            <SelectItem key={slot} value={slot}>{slot}</SelectItem>
-                          ))}
+                          {availableSlots.length > 0 ? (
+                            availableSlots.map((slot: string) => (
+                              <SelectItem key={slot} value={slot}>{slot}</SelectItem>
+                            ))
+                          ) : (
+                            <SelectItem value="none" disabled>No slots available</SelectItem>
+                          )}
                         </SelectContent>
                       </Select>
+                      {availabilityData?.bookedSlots && availabilityData.bookedSlots.length > 0 && (
+                        <p className="text-xs text-gray-500 mt-1">
+                          {availabilityData.bookedSlots.length} slot(s) already booked
+                        </p>
+                      )}
                       <FormMessage />
                     </FormItem>
                   )}
@@ -274,8 +351,19 @@ export function BookingModal({
                 </div>
               </div>
 
-              <Button onClick={handlePayment} className="w-full bg-brand-orange hover:bg-orange-600 text-white rounded-none uppercase font-bold tracking-widest py-6">
-                Pay $10.00 & Confirm
+              <Button 
+                onClick={handlePayment} 
+                disabled={bookingMutation.isPending}
+                className="w-full bg-brand-orange hover:bg-orange-600 text-white rounded-none uppercase font-bold tracking-widest py-6"
+              >
+                {bookingMutation.isPending ? (
+                  <>
+                    <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+                    Processing...
+                  </>
+                ) : (
+                  "Pay $10.00 & Confirm"
+                )}
               </Button>
               <Button variant="ghost" onClick={() => setStep(1)} className="w-full text-gray-400 hover:text-white uppercase text-xs">
                 Back to Details
