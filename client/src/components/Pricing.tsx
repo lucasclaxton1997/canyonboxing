@@ -71,7 +71,7 @@ export function Pricing() {
             data-testid="card-pricing-group"
           >
             <div className="absolute top-0 right-0 p-4 opacity-10">
-              <span className="text-9xl font-heading font-bold text-white leading-none">08</span>
+              <span className="text-9xl font-heading font-bold text-white leading-none">02</span>
             </div>
 
             <h3 className="text-2xl font-heading font-bold text-white uppercase italic mb-2 relative z-10">
