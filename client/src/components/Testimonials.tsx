@@ -30,10 +30,10 @@ export function Testimonials() {
       <div className="container mx-auto px-6 relative z-10">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-heading font-bold text-white mb-4 uppercase italic tracking-tighter">
-            Warrior <span className="text-brand-red">Words.</span>
+            What <span className="text-brand-red">Clients Say.</span>
           </h2>
           <p className="text-brand-orange uppercase tracking-widest font-bold text-sm">
-            What the community says
+            Community Feedback
           </p>
         </div>
 
