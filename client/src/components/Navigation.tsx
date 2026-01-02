@@ -22,6 +22,17 @@ export function Navigation() {
     { name: "Pricing", href: "#pricing", id: "pricing" },
   ];
 
+  const scrollToPricing = () => {
+    setIsOpen(false);
+    // Add a small delay for mobile to let the menu close if needed
+    setTimeout(() => {
+      const pricingSection = document.getElementById('pricing');
+      if (pricingSection) {
+        pricingSection.scrollIntoView({ behavior: 'smooth' });
+      }
+    }, 100);
+  };
+
   return (
     <nav
       className={cn(
@@ -48,7 +59,7 @@ export function Navigation() {
           ))}
           <Button 
             className="bg-brand-red hover:bg-red-700 text-white rounded-none font-bold uppercase tracking-wider px-6"
-            onClick={() => document.getElementById('pricing')?.scrollIntoView({ behavior: 'smooth' })}
+            onClick={scrollToPricing}
             data-testid="button-nav-book"
           >
             Book Now
@@ -88,10 +99,7 @@ export function Navigation() {
               ))}
               <Button 
                 className="w-full bg-brand-red text-white rounded-none font-bold uppercase"
-                onClick={() => {
-                  setIsOpen(false);
-                  document.getElementById('pricing')?.scrollIntoView({ behavior: 'smooth' });
-                }}
+                onClick={scrollToPricing}
                 data-testid="button-mobile-nav-book"
               >
                 Book Now
