@@ -3,21 +3,21 @@ import { Quote, Star } from "lucide-react";
 
 const testimonials = [
   {
-    name: "James R.",
-    role: "Local Resident",
-    content: "Canyon Boxing transformed my garage into a professional training camp. The technical detail is unmatched in Northern Arizona.",
+    name: "Robert K.",
+    role: "Parent in Williams",
+    content: "Canyon Boxing has been incredible for my son's confidence and discipline. Having elite coaching come to our home makes it so much easier for our family's schedule.",
     stars: 5
   },
   {
-    name: "Sarah M.",
-    role: "Amateur Boxer",
-    content: "Elite coaching right in my backyard. Lucas's focus on precision and footwork has taken my skills to a whole new level.",
+    name: "Margaret W.",
+    role: "Senior Resident",
+    content: "At 68, I was hesitant about boxing, but the technical and personalized approach is perfect. It's helped immensely with my balance and overall strength.",
     stars: 5
   },
   {
-    name: "Michael T.",
-    role: "Personal Training Client",
-    content: "The most convenient and high-impact workout I've ever had. No gym intimidation, just pure technique and grit.",
+    name: "David S.",
+    role: "Local Business Owner",
+    content: "The most professional training experience in Northern Arizona. High-impact, technical, and extremely convenient. Route 66 needed this.",
     stars: 5
   }
 ];
