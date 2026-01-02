@@ -35,11 +35,11 @@ const timeSlots = [
 export function BookingModal({ 
   isOpen, 
   onClose, 
-  initialType = "1on1" 
+  sessionType
 }: { 
   isOpen: boolean; 
   onClose: () => void; 
-  initialType?: "1on1" | "group" 
+  sessionType: "1on1" | "group";
 }) {
   const { toast } = useToast();
   const [step, setStep] = useState(1);
@@ -50,11 +50,16 @@ export function BookingModal({
       name: "",
       phone: "",
       zipcode: "",
-      sessionType: initialType,
+      sessionType: sessionType,
       duration: "60",
       time: "",
     },
   });
+
+  // Update session type if it changes via props
+  if (form.getValues("sessionType") !== sessionType) {
+    form.setValue("sessionType", sessionType);
+  }
 
   const onSubmit = (data: z.infer<typeof bookingSchema>) => {
     setStep(2); 
@@ -76,10 +81,10 @@ export function BookingModal({
       <DialogContent className="bg-zinc-900 border border-white/10 text-white sm:max-w-[550px] p-0 overflow-y-auto max-h-[90vh]">
         <div className="bg-brand-red p-6 text-center">
           <h2 className="text-2xl font-heading font-bold uppercase italic text-white tracking-tighter">
-            Secure Your Spot
+            {sessionType === "1on1" ? "Book 1-on-1 Session" : "Book Group Session"}
           </h2>
           <p className="text-white/80 text-sm mt-1 uppercase tracking-widest font-bold">
-            Personal Training on Route 66
+            {sessionType === "1on1" ? "Elite Technical Precision" : "High-Energy Team Training"}
           </p>
         </div>
         
@@ -205,37 +210,7 @@ export function BookingModal({
                   )}
                 />
 
-                <div className="grid grid-cols-2 gap-4 pt-2">
-                  <FormField
-                    control={form.control}
-                    name="sessionType"
-                    render={({ field }) => (
-                      <FormItem className="space-y-3">
-                        <FormLabel className="uppercase text-[10px] font-bold tracking-widest text-gray-400">Session Type</FormLabel>
-                        <FormControl>
-                          <RadioGroup
-                            onValueChange={field.onChange}
-                            defaultValue={field.value}
-                            className="flex flex-col space-y-1"
-                          >
-                            <FormItem className="flex items-center space-x-3 space-y-0">
-                              <FormControl>
-                                <RadioGroupItem value="1on1" className="border-white/20 text-brand-red" />
-                              </FormControl>
-                              <FormLabel className="font-normal text-white text-sm">1-on-1</FormLabel>
-                            </FormItem>
-                            <FormItem className="flex items-center space-x-3 space-y-0">
-                              <FormControl>
-                                <RadioGroupItem value="group" className="border-white/20 text-brand-red" />
-                              </FormControl>
-                              <FormLabel className="font-normal text-white text-sm">Group</FormLabel>
-                            </FormItem>
-                          </RadioGroup>
-                        </FormControl>
-                      </FormItem>
-                    )}
-                  />
-                  
+                <div className="pt-2">
                   <FormField
                     control={form.control}
                     name="duration"
@@ -246,7 +221,7 @@ export function BookingModal({
                           <RadioGroup
                             onValueChange={field.onChange}
                             defaultValue={field.value}
-                            className="flex flex-col space-y-1"
+                            className="flex flex-row space-x-8"
                           >
                             <FormItem className="flex items-center space-x-3 space-y-0">
                               <FormControl>

@@ -107,7 +107,7 @@ export function Pricing() {
       <BookingModal 
         isOpen={isModalOpen} 
         onClose={() => setIsModalOpen(false)} 
-        initialType={selectedType}
+        sessionType={selectedType}
       />
     </section>
   );
