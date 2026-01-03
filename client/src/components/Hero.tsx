@@ -42,7 +42,7 @@ export function Hero() {
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mt-8">
             <Button 
               size="lg"
-              className="bg-brand-red hover:bg-red-700 text-white text-lg font-bold uppercase tracking-widest px-8 py-6 rounded-none min-w-[200px]"
+              className="bg-brand-red hover:bg-red-700 text-white text-lg font-bold uppercase tracking-widest px-8 py-6 rounded-none w-full sm:w-56"
               onClick={() => document.getElementById('pricing')?.scrollIntoView({ behavior: 'smooth' })}
               data-testid="button-hero-start-training"
             >
@@ -51,7 +51,7 @@ export function Hero() {
             <Button 
               variant="outline"
               size="lg"
-              className="border-white/20 hover:bg-white/10 text-white text-lg font-bold uppercase tracking-widest px-8 py-6 rounded-none min-w-[200px]"
+              className="border-white/20 hover:bg-white/10 text-white text-lg font-bold uppercase tracking-widest px-8 py-6 rounded-none w-full sm:w-56"
               onClick={() => document.getElementById('regimen')?.scrollIntoView({ behavior: 'smooth' })}
               data-testid="button-hero-view-regimen"
             >
