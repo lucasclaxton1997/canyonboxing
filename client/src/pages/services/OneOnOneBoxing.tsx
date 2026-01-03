@@ -8,7 +8,7 @@ import { Check, Target, Brain, Zap, Clock } from "lucide-react";
 import videoSrc from "@assets/video-output-4E8AFFB4-5A1C-457D-A122-BD3FE5338B76_1767328015012.mp4";
 import beginnerImage from "@assets/generated_images/male_eurasian_coach_beginner_lesson.png";
 import fitnessImage from "@assets/generated_images/male_eurasian_coach_fitness_workout.png";
-import experiencedImage from "@assets/generated_images/male_eurasian_coach_advanced_session.png";
+import experiencedImage from "@assets/generated_images/male_coach_with_shirt_advanced_boxing.png";
 
 export default function OneOnOneBoxing() {
   const [isModalOpen, setIsModalOpen] = useState(false);
