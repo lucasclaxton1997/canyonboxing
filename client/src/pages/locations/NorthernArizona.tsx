@@ -5,6 +5,9 @@ import { PageLayout } from "@/components/PageLayout";
 import { BookingModal } from "@/components/BookingModal";
 import { useSEO } from "@/hooks/useSEO";
 import { MapPin, Phone, Mountain, TreePine, Sun } from "lucide-react";
+import residentImage from "@assets/generated_images/resident_backyard_boxing_training.png";
+import seasonalImage from "@assets/generated_images/seasonal_worker_boxing_workout.png";
+import secondHomeImage from "@assets/generated_images/second_homeowner_boxing_session.png";
 
 export default function NorthernArizona() {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -206,19 +209,64 @@ export default function NorthernArizona() {
             here—the love of outdoors, the seasonal rhythms, and the tight-knit communities. 
             Our mobile service is designed to fit the way Northern Arizonans live.
           </p>
-          <div className="grid md:grid-cols-3 gap-8 max-w-4xl mx-auto mt-12">
-            <div className="p-6">
-              <h3 className="text-brand-red font-bold uppercase mb-2">Residents</h3>
-              <p className="text-gray-400 text-sm">Year-round training at your home or preferred location</p>
-            </div>
-            <div className="p-6">
-              <h3 className="text-brand-orange font-bold uppercase mb-2">Seasonal Workers</h3>
-              <p className="text-gray-400 text-sm">Flexible scheduling for Grand Canyon and ski resort staff</p>
-            </div>
-            <div className="p-6">
-              <h3 className="text-white font-bold uppercase mb-2">Second Homeowners</h3>
-              <p className="text-gray-400 text-sm">Train when you're in town, skip when you're not</p>
-            </div>
+          <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto mt-12">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.1 }}
+              className="glass-panel overflow-hidden"
+            >
+              <div className="aspect-[4/3] overflow-hidden">
+                <img 
+                  src={residentImage} 
+                  alt="Northern Arizona resident boxing training in backyard with mountain views" 
+                  className="w-full h-full object-cover filter saturate-50 brightness-75"
+                />
+              </div>
+              <div className="p-6">
+                <h3 className="text-brand-red font-bold uppercase mb-2">Residents</h3>
+                <p className="text-gray-400 text-sm">Year-round training at your home or preferred location</p>
+              </div>
+            </motion.div>
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.2 }}
+              className="glass-panel overflow-hidden"
+            >
+              <div className="aspect-[4/3] overflow-hidden">
+                <img 
+                  src={seasonalImage} 
+                  alt="Seasonal worker doing boxing workout outdoors near pine trees" 
+                  className="w-full h-full object-cover filter saturate-50 brightness-75"
+                />
+              </div>
+              <div className="p-6">
+                <h3 className="text-brand-orange font-bold uppercase mb-2">Seasonal Workers</h3>
+                <p className="text-gray-400 text-sm">Flexible scheduling for Grand Canyon and ski resort staff</p>
+              </div>
+            </motion.div>
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.3 }}
+              className="glass-panel overflow-hidden"
+            >
+              <div className="aspect-[4/3] overflow-hidden">
+                <img 
+                  src={secondHomeImage} 
+                  alt="Second homeowner boxing training in vacation home gym" 
+                  className="w-full h-full object-cover filter saturate-50 brightness-75"
+                />
+              </div>
+              <div className="p-6">
+                <h3 className="text-white font-bold uppercase mb-2">Second Homeowners</h3>
+                <p className="text-gray-400 text-sm">Train when you're in town, skip when you're not</p>
+              </div>
+            </motion.div>
           </div>
         </div>
       </section>
