@@ -54,9 +54,9 @@ export default function NorthernArizona() {
               <Mountain className="w-5 h-5 text-brand-red" />
               <span className="text-brand-red font-bold uppercase tracking-[0.3em] text-sm">Northern Arizona</span>
             </div>
-            <h1 className="text-4xl md:text-6xl lg:text-7xl font-heading font-bold text-white mb-6 uppercase italic tracking-tighter leading-tight">
+            <h1 className="text-4xl md:text-6xl lg:text-7xl font-heading font-bold text-white mb-6 uppercase italic tracking-tighter leading-tight pr-4">
               Boxing Training in <br />
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-red to-brand-orange">
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-red to-brand-orange inline-block pr-2">
                 Northern Arizona
               </span>
             </h1>

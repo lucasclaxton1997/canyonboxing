@@ -63,9 +63,9 @@ export default function GroupBoxing() {
               <div className="w-12 h-[2px] bg-brand-orange" />
               <span className="text-brand-orange font-bold uppercase tracking-[0.3em] text-sm">Group Training</span>
             </div>
-            <h1 className="text-4xl md:text-6xl lg:text-7xl font-heading font-bold text-white mb-6 uppercase italic tracking-tighter leading-tight">
+            <h1 className="text-4xl md:text-6xl lg:text-7xl font-heading font-bold text-white mb-6 uppercase italic tracking-tighter leading-tight pr-4">
               Mobile Group <br />
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-orange to-brand-red">
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-orange to-brand-red inline-block pr-2">
                 Boxing Workouts
               </span>
             </h1>
