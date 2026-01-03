@@ -61,15 +61,21 @@ export function Navigation() {
 
         {/* Desktop Nav */}
         <div className="hidden md:flex items-center space-x-6">
-          {isHomePage && (
-            <a
-              href="#about"
-              className="text-sm uppercase tracking-widest font-bold text-gray-300 hover:text-white transition-colors"
-              data-testid="link-nav-about"
-            >
-              About
-            </a>
-          )}
+          <a
+            href={isHomePage ? "#about" : "/#about"}
+            className="text-sm uppercase tracking-widest font-bold text-gray-300 hover:text-white transition-colors"
+            data-testid="link-nav-about"
+          >
+            About
+          </a>
+          
+          <a
+            href={isHomePage ? "#pricing" : "/#pricing"}
+            className="text-sm uppercase tracking-widest font-bold text-gray-300 hover:text-white transition-colors"
+            data-testid="link-nav-pricing"
+          >
+            Pricing
+          </a>
 
           {/* Services Dropdown */}
           <div 
@@ -137,16 +143,6 @@ export function Navigation() {
             </AnimatePresence>
           </div>
 
-          {isHomePage && (
-            <a
-              href="#pricing"
-              className="text-sm uppercase tracking-widest font-bold text-gray-300 hover:text-white transition-colors"
-              data-testid="link-nav-pricing"
-            >
-              Pricing
-            </a>
-          )}
-
           <a href="tel:6029464446" className="flex items-center gap-2 text-white hover:text-brand-red transition-colors font-bold tracking-wider" data-testid="link-nav-phone">
             <Phone className="w-4 h-4" />
             (602) 946-4446
@@ -180,15 +176,21 @@ export function Navigation() {
             className="md:hidden bg-black/95 backdrop-blur-xl border-b border-white/10"
           >
             <div className="flex flex-col p-6 space-y-4">
-              {isHomePage && (
-                <a
-                  href="#about"
-                  className="text-lg font-bold uppercase text-white"
-                  onClick={() => setIsOpen(false)}
-                >
-                  About
-                </a>
-              )}
+              <a
+                href={isHomePage ? "#about" : "/#about"}
+                className="text-lg font-bold uppercase text-white"
+                onClick={() => setIsOpen(false)}
+              >
+                About
+              </a>
+              
+              <a
+                href={isHomePage ? "#pricing" : "/#pricing"}
+                className="text-lg font-bold uppercase text-white"
+                onClick={() => setIsOpen(false)}
+              >
+                Pricing
+              </a>
               
               <div className="border-t border-white/10 pt-4">
                 <span className="text-xs text-gray-500 uppercase tracking-widest">Services</span>
@@ -223,16 +225,6 @@ export function Navigation() {
                   ))}
                 </div>
               </div>
-
-              {isHomePage && (
-                <a
-                  href="#pricing"
-                  className="text-lg font-bold uppercase text-white border-t border-white/10 pt-4"
-                  onClick={() => setIsOpen(false)}
-                >
-                  Pricing
-                </a>
-              )}
               
               <a href="tel:6029464446" className="flex items-center gap-2 text-white font-bold py-2 border-t border-white/10 pt-4" data-testid="link-mobile-phone">
                 <Phone className="w-5 h-5 text-brand-red" />
