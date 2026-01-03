@@ -1,10 +1,14 @@
+import { useState } from "react";
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { PageLayout } from "@/components/PageLayout";
+import { BookingModal } from "@/components/BookingModal";
 import { useSEO } from "@/hooks/useSEO";
 import { MapPin, Phone, Route, Star } from "lucide-react";
 
 export default function Route66Boxing() {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
   useSEO({
     title: "Boxing Coach on Historic Route 66",
     description: "Mobile boxing personal training along Historic Route 66 in Arizona. From Seligman to Flagstaff, Canyon Boxing brings elite coaching to the Mother Road.",
@@ -50,7 +54,8 @@ export default function Route66Boxing() {
               <Button 
                 size="lg"
                 className="bg-brand-orange hover:bg-orange-600 text-white text-lg font-bold uppercase tracking-widest px-8 py-6 rounded-none"
-                onClick={() => window.location.href = '/#pricing'}
+                onClick={() => setIsModalOpen(true)}
+                data-testid="button-hero-book"
               >
                 Book on Route 66
               </Button>
@@ -166,7 +171,8 @@ export default function Route66Boxing() {
             <Button 
               size="lg"
               className="bg-white text-brand-orange hover:bg-gray-100 text-lg font-bold uppercase tracking-widest px-8 py-6 rounded-none"
-              onClick={() => window.location.href = '/#pricing'}
+              onClick={() => setIsModalOpen(true)}
+              data-testid="button-cta-book"
             >
               Book Now
             </Button>
@@ -181,6 +187,12 @@ export default function Route66Boxing() {
           </div>
         </div>
       </section>
+
+      <BookingModal 
+        isOpen={isModalOpen} 
+        onClose={() => setIsModalOpen(false)} 
+        sessionType="1on1"
+      />
     </PageLayout>
   );
 }

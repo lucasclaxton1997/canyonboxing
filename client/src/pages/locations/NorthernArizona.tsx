@@ -1,10 +1,14 @@
+import { useState } from "react";
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { PageLayout } from "@/components/PageLayout";
+import { BookingModal } from "@/components/BookingModal";
 import { useSEO } from "@/hooks/useSEO";
 import { MapPin, Phone, Mountain, TreePine, Sun } from "lucide-react";
 
 export default function NorthernArizona() {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
   useSEO({
     title: "Mobile Boxing Personal Training in Northern Arizona",
     description: "Professional mobile boxing training serving Northern Arizona. From the ponderosa pines to the high desert, Canyon Boxing brings elite coaching to Coconino County and beyond.",
@@ -60,7 +64,8 @@ export default function NorthernArizona() {
               <Button 
                 size="lg"
                 className="bg-brand-red hover:bg-red-700 text-white text-lg font-bold uppercase tracking-widest px-8 py-6 rounded-none"
-                onClick={() => window.location.href = '/#pricing'}
+                onClick={() => setIsModalOpen(true)}
+                data-testid="button-hero-book"
               >
                 Book in Northern AZ
               </Button>
@@ -219,7 +224,8 @@ export default function NorthernArizona() {
             <Button 
               size="lg"
               className="bg-white text-brand-red hover:bg-gray-100 text-lg font-bold uppercase tracking-widest px-8 py-6 rounded-none"
-              onClick={() => window.location.href = '/#pricing'}
+              onClick={() => setIsModalOpen(true)}
+              data-testid="button-cta-book"
             >
               Book Now
             </Button>
@@ -234,6 +240,12 @@ export default function NorthernArizona() {
           </div>
         </div>
       </section>
+
+      <BookingModal 
+        isOpen={isModalOpen} 
+        onClose={() => setIsModalOpen(false)} 
+        sessionType="1on1"
+      />
     </PageLayout>
   );
 }

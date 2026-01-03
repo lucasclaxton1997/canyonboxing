@@ -1,10 +1,14 @@
+import { useState } from "react";
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { PageLayout } from "@/components/PageLayout";
+import { BookingModal } from "@/components/BookingModal";
 import { useSEO } from "@/hooks/useSEO";
 import { MapPin, Phone, Clock, Star } from "lucide-react";
 
 export default function WilliamsAZ() {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
   useSEO({
     title: "Mobile Boxing Personal Training in Williams, AZ",
     description: "Professional mobile boxing personal training serving Williams, Arizona. The only dedicated boxing coach in Williams bringing elite training directly to your home, gym, or outdoor space.",
@@ -52,7 +56,8 @@ export default function WilliamsAZ() {
               <Button 
                 size="lg"
                 className="bg-brand-red hover:bg-red-700 text-white text-lg font-bold uppercase tracking-widest px-8 py-6 rounded-none"
-                onClick={() => window.location.href = '/#pricing'}
+                onClick={() => setIsModalOpen(true)}
+                data-testid="button-hero-book"
               >
                 Book in Williams
               </Button>
@@ -167,7 +172,8 @@ export default function WilliamsAZ() {
             <Button 
               size="lg"
               className="bg-white text-brand-red hover:bg-gray-100 text-lg font-bold uppercase tracking-widest px-8 py-6 rounded-none"
-              onClick={() => window.location.href = '/#pricing'}
+              onClick={() => setIsModalOpen(true)}
+              data-testid="button-cta-book"
             >
               Book Now
             </Button>
@@ -182,6 +188,12 @@ export default function WilliamsAZ() {
           </div>
         </div>
       </section>
+
+      <BookingModal 
+        isOpen={isModalOpen} 
+        onClose={() => setIsModalOpen(false)} 
+        sessionType="1on1"
+      />
     </PageLayout>
   );
 }

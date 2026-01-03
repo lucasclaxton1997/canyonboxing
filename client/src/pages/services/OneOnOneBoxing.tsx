@@ -1,10 +1,14 @@
+import { useState } from "react";
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { PageLayout } from "@/components/PageLayout";
+import { BookingModal } from "@/components/BookingModal";
 import { useSEO } from "@/hooks/useSEO";
-import { Check, Target, Brain, Zap, Clock, MapPin } from "lucide-react";
+import { Check, Target, Brain, Zap, Clock } from "lucide-react";
 
 export default function OneOnOneBoxing() {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
   useSEO({
     title: "1-on-1 Boxing Personal Training",
     description: "Elite one-on-one boxing personal training in Northern Arizona. Master technique, build power, and achieve your fitness goals with personalized coaching from Canyon Boxing Club.",
@@ -72,7 +76,8 @@ export default function OneOnOneBoxing() {
             <Button 
               size="lg"
               className="bg-brand-red hover:bg-red-700 text-white text-lg font-bold uppercase tracking-widest px-8 py-6 rounded-none"
-              onClick={() => document.getElementById('pricing')?.scrollIntoView({ behavior: 'smooth' })}
+              onClick={() => setIsModalOpen(true)}
+              data-testid="button-hero-book"
             >
               Book Your Session
             </Button>
@@ -148,7 +153,8 @@ export default function OneOnOneBoxing() {
               </p>
               <Button 
                 className="w-full bg-white text-black hover:bg-gray-200 rounded-none font-bold uppercase tracking-widest"
-                onClick={() => window.location.href = '/#pricing'}
+                onClick={() => setIsModalOpen(true)}
+                data-testid="button-pricing-book"
               >
                 Book Now
               </Button>
@@ -198,7 +204,8 @@ export default function OneOnOneBoxing() {
             <Button 
               size="lg"
               className="bg-white text-brand-red hover:bg-gray-100 text-lg font-bold uppercase tracking-widest px-8 py-6 rounded-none"
-              onClick={() => window.location.href = '/#pricing'}
+              onClick={() => setIsModalOpen(true)}
+              data-testid="button-cta-book"
             >
               Book Session
             </Button>
@@ -213,6 +220,12 @@ export default function OneOnOneBoxing() {
           </div>
         </div>
       </section>
+
+      <BookingModal 
+        isOpen={isModalOpen} 
+        onClose={() => setIsModalOpen(false)} 
+        sessionType="1on1"
+      />
     </PageLayout>
   );
 }

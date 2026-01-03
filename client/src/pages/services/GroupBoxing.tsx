@@ -1,10 +1,14 @@
+import { useState } from "react";
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { PageLayout } from "@/components/PageLayout";
+import { BookingModal } from "@/components/BookingModal";
 import { useSEO } from "@/hooks/useSEO";
 import { Users, Flame, Trophy, Heart, Check } from "lucide-react";
 
 export default function GroupBoxing() {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
   useSEO({
     title: "Group Boxing Training",
     description: "High-energy mobile group boxing workouts in Northern Arizona. Train with friends, family, or coworkers. Perfect for team building and group fitness on Route 66.",
@@ -74,7 +78,8 @@ export default function GroupBoxing() {
             <Button 
               size="lg"
               className="bg-brand-orange hover:bg-orange-600 text-white text-lg font-bold uppercase tracking-widest px-8 py-6 rounded-none"
-              onClick={() => document.getElementById('pricing')?.scrollIntoView({ behavior: 'smooth' })}
+              onClick={() => setIsModalOpen(true)}
+              data-testid="button-hero-book"
             >
               Book Your Group
             </Button>
@@ -142,7 +147,8 @@ export default function GroupBoxing() {
               </p>
               <Button 
                 className="w-full bg-brand-orange hover:bg-orange-600 text-white rounded-none font-bold uppercase tracking-widest"
-                onClick={() => window.location.href = '/#pricing'}
+                onClick={() => setIsModalOpen(true)}
+                data-testid="button-pricing-book"
               >
                 Book Your Group
               </Button>
@@ -223,7 +229,8 @@ export default function GroupBoxing() {
             <Button 
               size="lg"
               className="bg-white text-brand-orange hover:bg-gray-100 text-lg font-bold uppercase tracking-widest px-8 py-6 rounded-none"
-              onClick={() => window.location.href = '/#pricing'}
+              onClick={() => setIsModalOpen(true)}
+              data-testid="button-cta-book"
             >
               Book Group Session
             </Button>
@@ -238,6 +245,12 @@ export default function GroupBoxing() {
           </div>
         </div>
       </section>
+
+      <BookingModal 
+        isOpen={isModalOpen} 
+        onClose={() => setIsModalOpen(false)} 
+        sessionType="group"
+      />
     </PageLayout>
   );
 }
