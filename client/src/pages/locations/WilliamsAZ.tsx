@@ -8,6 +8,12 @@ import { MapPin, Phone, Clock, Star } from "lucide-react";
 
 export default function WilliamsAZ() {
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [sessionType, setSessionType] = useState<"1on1" | "group">("1on1");
+
+  const openBooking = (type: "1on1" | "group") => {
+    setSessionType(type);
+    setIsModalOpen(true);
+  };
 
   useSEO({
     title: "Mobile Boxing Personal Training in Williams, AZ",
@@ -56,10 +62,18 @@ export default function WilliamsAZ() {
               <Button 
                 size="lg"
                 className="bg-brand-red hover:bg-red-700 text-white text-lg font-bold uppercase tracking-widest px-8 py-6 rounded-none"
-                onClick={() => setIsModalOpen(true)}
-                data-testid="button-hero-book"
+                onClick={() => openBooking("1on1")}
+                data-testid="button-hero-book-1on1"
               >
-                Book in Williams
+                Book 1-on-1
+              </Button>
+              <Button 
+                size="lg"
+                className="bg-brand-orange hover:bg-orange-600 text-white text-lg font-bold uppercase tracking-widest px-8 py-6 rounded-none"
+                onClick={() => openBooking("group")}
+                data-testid="button-hero-book-group"
+              >
+                Book Group
               </Button>
               <Button 
                 size="lg"
@@ -172,10 +186,18 @@ export default function WilliamsAZ() {
             <Button 
               size="lg"
               className="bg-white text-brand-red hover:bg-gray-100 text-lg font-bold uppercase tracking-widest px-8 py-6 rounded-none"
-              onClick={() => setIsModalOpen(true)}
-              data-testid="button-cta-book"
+              onClick={() => openBooking("1on1")}
+              data-testid="button-cta-book-1on1"
             >
-              Book Now
+              Book 1-on-1
+            </Button>
+            <Button 
+              size="lg"
+              className="bg-black/20 text-white hover:bg-black/30 text-lg font-bold uppercase tracking-widest px-8 py-6 rounded-none border border-white/30"
+              onClick={() => openBooking("group")}
+              data-testid="button-cta-book-group"
+            >
+              Book Group
             </Button>
             <Button 
               size="lg"
@@ -192,7 +214,7 @@ export default function WilliamsAZ() {
       <BookingModal 
         isOpen={isModalOpen} 
         onClose={() => setIsModalOpen(false)} 
-        sessionType="1on1"
+        sessionType={sessionType}
       />
     </PageLayout>
   );

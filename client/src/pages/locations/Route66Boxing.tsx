@@ -8,6 +8,12 @@ import { MapPin, Phone, Route, Star } from "lucide-react";
 
 export default function Route66Boxing() {
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [sessionType, setSessionType] = useState<"1on1" | "group">("1on1");
+
+  const openBooking = (type: "1on1" | "group") => {
+    setSessionType(type);
+    setIsModalOpen(true);
+  };
 
   useSEO({
     title: "Boxing Coach on Historic Route 66",
@@ -53,11 +59,19 @@ export default function Route66Boxing() {
             <div className="flex flex-col sm:flex-row gap-4">
               <Button 
                 size="lg"
-                className="bg-brand-orange hover:bg-orange-600 text-white text-lg font-bold uppercase tracking-widest px-8 py-6 rounded-none"
-                onClick={() => setIsModalOpen(true)}
-                data-testid="button-hero-book"
+                className="bg-brand-red hover:bg-red-700 text-white text-lg font-bold uppercase tracking-widest px-8 py-6 rounded-none"
+                onClick={() => openBooking("1on1")}
+                data-testid="button-hero-book-1on1"
               >
-                Book on Route 66
+                Book 1-on-1
+              </Button>
+              <Button 
+                size="lg"
+                className="bg-brand-orange hover:bg-orange-600 text-white text-lg font-bold uppercase tracking-widest px-8 py-6 rounded-none"
+                onClick={() => openBooking("group")}
+                data-testid="button-hero-book-group"
+              >
+                Book Group
               </Button>
               <Button 
                 size="lg"
@@ -171,10 +185,18 @@ export default function Route66Boxing() {
             <Button 
               size="lg"
               className="bg-white text-brand-orange hover:bg-gray-100 text-lg font-bold uppercase tracking-widest px-8 py-6 rounded-none"
-              onClick={() => setIsModalOpen(true)}
-              data-testid="button-cta-book"
+              onClick={() => openBooking("1on1")}
+              data-testid="button-cta-book-1on1"
             >
-              Book Now
+              Book 1-on-1
+            </Button>
+            <Button 
+              size="lg"
+              className="bg-black/20 text-white hover:bg-black/30 text-lg font-bold uppercase tracking-widest px-8 py-6 rounded-none border border-white/30"
+              onClick={() => openBooking("group")}
+              data-testid="button-cta-book-group"
+            >
+              Book Group
             </Button>
             <Button 
               size="lg"
@@ -191,7 +213,7 @@ export default function Route66Boxing() {
       <BookingModal 
         isOpen={isModalOpen} 
         onClose={() => setIsModalOpen(false)} 
-        sessionType="1on1"
+        sessionType={sessionType}
       />
     </PageLayout>
   );
