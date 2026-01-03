@@ -18,7 +18,10 @@ export function About() {
             transition={{ duration: 0.8 }}
             className="relative"
           >
-            <div className="absolute -inset-4 bg-brand-red/20 blur-xl rounded-full opacity-50" />
+            <h3 className="text-xl font-heading font-bold text-white uppercase italic tracking-wider mb-4 text-center md:text-left">
+              Meet Our Coach
+            </h3>
+            <div className="absolute top-8 -inset-x-4 -bottom-4 bg-brand-red/20 blur-xl rounded-full opacity-50" />
             <div className="relative aspect-[3/4] w-full max-w-md mx-auto md:mr-auto overflow-hidden border border-white/10">
               <img 
                 src={coachImage} 
