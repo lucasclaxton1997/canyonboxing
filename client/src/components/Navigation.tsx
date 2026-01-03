@@ -55,8 +55,8 @@ export function Navigation() {
       )}
     >
       <div className="container mx-auto px-6 flex items-center justify-between">
-        <a href="/" className="text-2xl font-heading font-bold italic tracking-tighter text-white uppercase" data-testid="link-home">
-          Canyon<span className="text-brand-red" style={{ WebkitTextStroke: '0.5px black', paintOrder: 'stroke fill' }}>Boxing</span>
+        <a href="/" className="text-2xl font-heading font-bold italic tracking-tighter text-white uppercase" data-testid="link-home" style={{ WebkitTextStroke: '0.5px black', paintOrder: 'stroke fill' }}>
+          Canyon<span className="text-brand-red">Boxing</span>
         </a>
 
         {/* Desktop Nav */}
