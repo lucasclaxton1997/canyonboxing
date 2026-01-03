@@ -1,20 +1,26 @@
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
-import heroImage from "@assets/generated_images/boxer_training_at_grand_canyon_sunset.png";
+import heroVideo from "@assets/v12044gd0000c89ntj3c77uev1lh9pf0_1767483874612.mov";
 
 export function Hero() {
   return (
     <section className="relative min-h-screen w-full overflow-hidden flex items-center justify-center">
-      {/* Background Image with Overlay */}
+      {/* Background Video with Overlay */}
       <div className="absolute inset-0 z-0">
         <div className="absolute inset-0 bg-gradient-to-t from-background via-background/40 to-transparent z-10" />
         <div className="absolute inset-0 bg-black/40 z-10" />
-        <img
-          src={heroImage}
-          alt="Boxer training at Grand Canyon"
+        <video
+          autoPlay
+          muted
+          loop
+          playsInline
           className="w-full h-full object-cover"
-          data-testid="img-hero-background"
-        />
+          aria-label="Boxing training in Grand Canyon Arizona - Mobile boxing personal training with dramatic canyon views"
+          data-testid="video-hero-background"
+        >
+          <source src={heroVideo} type="video/quicktime" />
+          Your browser does not support the video tag.
+        </video>
       </div>
 
       {/* Content */}
