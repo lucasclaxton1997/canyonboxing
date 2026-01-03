@@ -6,6 +6,9 @@ import { BookingModal } from "@/components/BookingModal";
 import { useSEO } from "@/hooks/useSEO";
 import { Check, Target, Brain, Zap, Clock } from "lucide-react";
 import videoSrc from "@assets/video-output-4E8AFFB4-5A1C-457D-A122-BD3FE5338B76_1767328015012.mp4";
+import beginnerImage from "@assets/stock_images/beginner_learning_bo_2de1f497.jpg";
+import fitnessImage from "@assets/stock_images/high_intensity_boxin_9923c502.jpg";
+import experiencedImage from "@assets/stock_images/experienced_boxer_tr_0b4fcd5f.jpg";
 
 export default function OneOnOneBoxing() {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -186,18 +189,39 @@ export default function OneOnOneBoxing() {
             Whether you've never thrown a punch or you're preparing for competition, 
             our 1-on-1 training adapts to meet you where you are.
           </p>
-          <div className="grid md:grid-cols-3 gap-8 max-w-4xl mx-auto">
-            <div className="p-6">
-              <h3 className="text-brand-red font-bold uppercase mb-2">Beginners</h3>
-              <p className="text-gray-400 text-sm">Learn fundamentals in a supportive, judgment-free environment</p>
+          <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+            <div className="glass-panel overflow-hidden">
+              <img 
+                src={beginnerImage} 
+                alt="Beginner boxing lesson with personal trainer teaching proper stance and technique in Williams Arizona" 
+                className="w-full aspect-[4/3] object-cover saturate-75 brightness-90"
+              />
+              <div className="p-6">
+                <h3 className="text-brand-red font-bold uppercase mb-2">Beginners</h3>
+                <p className="text-gray-400 text-sm">Learn fundamentals in a supportive, judgment-free environment</p>
+              </div>
             </div>
-            <div className="p-6">
-              <h3 className="text-brand-orange font-bold uppercase mb-2">Fitness Seekers</h3>
-              <p className="text-gray-400 text-sm">High-intensity workouts that burn calories and build functional strength</p>
+            <div className="glass-panel overflow-hidden">
+              <img 
+                src={fitnessImage} 
+                alt="High-intensity boxing fitness workout for weight loss and cardio training in Northern Arizona" 
+                className="w-full aspect-[4/3] object-cover saturate-75 brightness-90"
+              />
+              <div className="p-6">
+                <h3 className="text-brand-orange font-bold uppercase mb-2">Fitness Seekers</h3>
+                <p className="text-gray-400 text-sm">High-intensity workouts that burn calories and build functional strength</p>
+              </div>
             </div>
-            <div className="p-6">
-              <h3 className="text-white font-bold uppercase mb-2">Experienced Boxers</h3>
-              <p className="text-gray-400 text-sm">Refine technique and push your limits with advanced training</p>
+            <div className="glass-panel overflow-hidden">
+              <img 
+                src={experiencedImage} 
+                alt="Advanced boxing training session for experienced fighters and competitive boxers on Route 66" 
+                className="w-full aspect-[4/3] object-cover saturate-75 brightness-90"
+              />
+              <div className="p-6">
+                <h3 className="text-white font-bold uppercase mb-2">Experienced Boxers</h3>
+                <p className="text-gray-400 text-sm">Refine technique and push your limits with advanced training</p>
+              </div>
             </div>
           </div>
         </div>
