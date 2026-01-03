@@ -58,7 +58,7 @@ export default function WilliamsAZ() {
               personal training. Canyon Boxing brings professional coaching directly to your doorstep 
               in Williams and surrounding areas.
             </p>
-            <div className="flex flex-col sm:flex-row gap-3 md:gap-4">
+            <div className="flex flex-wrap gap-3 md:gap-4">
               <Button 
                 size="lg"
                 className="bg-brand-red hover:bg-red-700 text-white text-base md:text-lg font-bold uppercase tracking-widest px-6 md:px-8 py-4 md:py-6 rounded-none"

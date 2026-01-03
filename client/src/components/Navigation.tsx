@@ -4,15 +4,26 @@ import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import { motion, AnimatePresence } from "framer-motion";
 import { useLocation } from "wouter";
+import { BookingModal } from "@/components/BookingModal";
 
 export function Navigation() {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [servicesOpen, setServicesOpen] = useState(false);
   const [locationsOpen, setLocationsOpen] = useState(false);
+  const [bookingOpen, setBookingOpen] = useState(false);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [sessionType, setSessionType] = useState<"1on1" | "group">("1on1");
   const [location] = useLocation();
 
   const isHomePage = location === "/";
+
+  const openBooking = (type: "1on1" | "group") => {
+    setSessionType(type);
+    setIsModalOpen(true);
+    setBookingOpen(false);
+    setIsOpen(false);
+  };
 
   useEffect(() => {
     const handleScroll = () => {
@@ -147,13 +158,46 @@ export function Navigation() {
             <Phone className="w-4 h-4" />
             (602) 946-4446
           </a>
-          <Button 
-            className="bg-brand-red hover:bg-red-700 text-white rounded-none font-bold uppercase tracking-wider px-6"
-            onClick={scrollToPricing}
-            data-testid="button-nav-book"
+          
+          {/* Book Now Dropdown */}
+          <div 
+            className="relative"
+            onMouseEnter={() => setBookingOpen(true)}
+            onMouseLeave={() => setBookingOpen(false)}
           >
-            Book Now
-          </Button>
+            <Button 
+              className="bg-brand-red hover:bg-red-700 text-white rounded-none font-bold uppercase tracking-wider px-6"
+              data-testid="button-nav-book"
+            >
+              Book Now
+              <ChevronDown className={cn("w-4 h-4 ml-1 transition-transform", bookingOpen && "rotate-180")} />
+            </Button>
+            <AnimatePresence>
+              {bookingOpen && (
+                <motion.div
+                  initial={{ opacity: 0, y: 10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: 10 }}
+                  className="absolute top-full right-0 mt-2 w-48 bg-zinc-900 border border-white/10 shadow-xl"
+                >
+                  <button
+                    onClick={() => openBooking("1on1")}
+                    className="block w-full text-left px-4 py-3 text-sm text-gray-300 hover:text-white hover:bg-brand-red/20 transition-colors"
+                    data-testid="button-nav-book-1on1"
+                  >
+                    1-on-1 Training
+                  </button>
+                  <button
+                    onClick={() => openBooking("group")}
+                    className="block w-full text-left px-4 py-3 text-sm text-gray-300 hover:text-white hover:bg-brand-orange/20 transition-colors"
+                    data-testid="button-nav-book-group"
+                  >
+                    Group Training
+                  </button>
+                </motion.div>
+              )}
+            </AnimatePresence>
+          </div>
         </div>
 
         {/* Mobile Toggle */}
@@ -230,17 +274,32 @@ export function Navigation() {
                 <Phone className="w-5 h-5 text-brand-red" />
                 (602) 946-4446
               </a>
-              <Button 
-                className="w-full bg-brand-red text-white rounded-none font-bold uppercase"
-                onClick={scrollToPricing}
-                data-testid="button-mobile-nav-book"
-              >
-                Book Now
-              </Button>
+              <div className="flex gap-2">
+                <Button 
+                  className="flex-1 bg-brand-red text-white rounded-none font-bold uppercase text-sm"
+                  onClick={() => openBooking("1on1")}
+                  data-testid="button-mobile-nav-book-1on1"
+                >
+                  Book 1-on-1
+                </Button>
+                <Button 
+                  className="flex-1 bg-brand-orange text-white rounded-none font-bold uppercase text-sm"
+                  onClick={() => openBooking("group")}
+                  data-testid="button-mobile-nav-book-group"
+                >
+                  Book Group
+                </Button>
+              </div>
             </div>
           </motion.div>
         )}
       </AnimatePresence>
+
+      <BookingModal 
+        isOpen={isModalOpen} 
+        onClose={() => setIsModalOpen(false)} 
+        sessionType={sessionType}
+      />
     </nav>
   );
 }

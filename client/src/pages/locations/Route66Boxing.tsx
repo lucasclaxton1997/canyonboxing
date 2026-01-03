@@ -55,10 +55,10 @@ export default function Route66Boxing() {
               the only dedicated mobile boxing personal training service on the Mother Road. 
               From Seligman to the outskirts of Flagstaff, we bring the sweet science to you.
             </p>
-            <div className="flex flex-col sm:flex-row gap-4">
+            <div className="flex flex-wrap gap-3 sm:gap-4">
               <Button 
                 size="lg"
-                className="bg-brand-red hover:bg-red-700 text-white text-lg font-bold uppercase tracking-widest px-8 py-6 rounded-none"
+                className="bg-brand-red hover:bg-red-700 text-white text-base sm:text-lg font-bold uppercase tracking-widest px-6 sm:px-8 py-4 sm:py-6 rounded-none"
                 onClick={() => openBooking("1on1")}
                 data-testid="button-hero-book-1on1"
               >
@@ -66,7 +66,7 @@ export default function Route66Boxing() {
               </Button>
               <Button 
                 size="lg"
-                className="bg-brand-orange hover:bg-orange-600 text-white text-lg font-bold uppercase tracking-widest px-8 py-6 rounded-none"
+                className="bg-brand-orange hover:bg-orange-600 text-white text-base sm:text-lg font-bold uppercase tracking-widest px-6 sm:px-8 py-4 sm:py-6 rounded-none"
                 onClick={() => openBooking("group")}
                 data-testid="button-hero-book-group"
               >
@@ -75,11 +75,11 @@ export default function Route66Boxing() {
               <Button 
                 size="lg"
                 variant="outline"
-                className="border-white/20 text-white hover:bg-white/10 text-lg font-bold uppercase tracking-widest px-8 py-6 rounded-none"
+                className="border-white/20 text-white hover:bg-white/10 text-base sm:text-lg font-bold uppercase tracking-widest px-6 sm:px-8 py-4 sm:py-6 rounded-none"
                 asChild
               >
                 <a href="tel:6029464446">
-                  <Phone className="mr-2 w-5 h-5" />
+                  <Phone className="mr-2 w-4 h-4 sm:w-5 sm:h-5" />
                   (602) 946-4446
                 </a>
               </Button>
