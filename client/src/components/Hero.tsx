@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
-import heroVideo from "@assets/v12044gd0000c89ntj3c77uev1lh9pf0_1767483874612.mov";
+import heroVideo from "@assets/v09044g40000c5ovcbbc77u7vuv3msqg_1767484249970.mov";
 
 export function Hero() {
   return (
