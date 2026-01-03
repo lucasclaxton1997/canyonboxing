@@ -35,32 +35,33 @@ export default function WilliamsAZ() {
   return (
     <PageLayout>
       {/* Hero Section */}
-      <section className="relative pt-40 pb-24 bg-zinc-950 border-b border-white/5">
+      <section className="relative pt-32 md:pt-40 pb-16 md:pb-24 bg-zinc-950 border-b border-white/5 min-h-fit overflow-visible">
         <div className="container mx-auto px-6">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
+            className="flex flex-col"
           >
-            <div className="flex items-center gap-3 mb-6">
+            <div className="flex items-center gap-3 mb-4 md:mb-6">
               <MapPin className="w-5 h-5 text-brand-red" />
               <span className="text-brand-red font-bold uppercase tracking-[0.3em] text-sm">Williams, Arizona</span>
             </div>
-            <h1 className="text-4xl md:text-6xl lg:text-7xl font-heading font-bold text-white mb-6 uppercase italic tracking-tighter leading-tight">
-              Boxing Personal Training <br />
+            <h1 className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-heading font-bold text-white mb-4 md:mb-6 uppercase italic tracking-tighter leading-tight">
+              Boxing Personal Training{" "}
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-red to-brand-orange">
                 in Williams, AZ
               </span>
             </h1>
-            <p className="text-xl text-gray-300 font-light leading-relaxed max-w-2xl mb-8">
+            <p className="text-lg md:text-xl text-gray-300 font-light leading-relaxed max-w-2xl mb-6 md:mb-8">
               Williams is the "Gateway to the Grand Canyon"—and now it's home to elite mobile boxing 
               personal training. Canyon Boxing brings professional coaching directly to your doorstep 
               in Williams and surrounding areas.
             </p>
-            <div className="flex flex-col sm:flex-row gap-4">
+            <div className="flex flex-col sm:flex-row gap-3 md:gap-4">
               <Button 
                 size="lg"
-                className="bg-brand-red hover:bg-red-700 text-white text-lg font-bold uppercase tracking-widest px-8 py-6 rounded-none"
+                className="bg-brand-red hover:bg-red-700 text-white text-base md:text-lg font-bold uppercase tracking-widest px-6 md:px-8 py-4 md:py-6 rounded-none"
                 onClick={() => openBooking("1on1")}
                 data-testid="button-hero-book-1on1"
               >
@@ -68,7 +69,7 @@ export default function WilliamsAZ() {
               </Button>
               <Button 
                 size="lg"
-                className="bg-brand-orange hover:bg-orange-600 text-white text-lg font-bold uppercase tracking-widest px-8 py-6 rounded-none"
+                className="bg-brand-orange hover:bg-orange-600 text-white text-base md:text-lg font-bold uppercase tracking-widest px-6 md:px-8 py-4 md:py-6 rounded-none"
                 onClick={() => openBooking("group")}
                 data-testid="button-hero-book-group"
               >
@@ -77,7 +78,7 @@ export default function WilliamsAZ() {
               <Button 
                 size="lg"
                 variant="outline"
-                className="border-white/20 text-white hover:bg-white/10 text-lg font-bold uppercase tracking-widest px-8 py-6 rounded-none"
+                className="border-white/20 text-white hover:bg-white/10 text-base md:text-lg font-bold uppercase tracking-widest px-6 md:px-8 py-4 md:py-6 rounded-none"
                 asChild
               >
                 <a href="tel:6029464446">
