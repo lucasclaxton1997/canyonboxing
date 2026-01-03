@@ -6,7 +6,7 @@ import { BookingModal } from "@/components/BookingModal";
 import { useSEO } from "@/hooks/useSEO";
 import { MapPin, Phone, Mountain, TreePine, Sun } from "lucide-react";
 import residentImage from "@assets/generated_images/resident_backyard_boxing_training.png";
-import seasonalImage from "@assets/generated_images/rancher_boxing_in_barn_gym.png";
+import seasonalImage from "@assets/generated_images/rancher_in_flannel_boxing_barn.png";
 import secondHomeImage from "@assets/generated_images/second_homeowner_boxing_session.png";
 
 export default function NorthernArizona() {
