@@ -37,14 +37,14 @@ export function Navigation() {
   };
 
   const services = [
-    { name: "1-on-1 Training", href: "/one-on-one-boxing" },
-    { name: "Group Training", href: "/group-boxing" },
+    { name: "1-on-1 Training", href: "/one-on-one-boxing", id: "one-on-one" },
+    { name: "Group Training", href: "/group-boxing", id: "group" },
   ];
 
   const locations = [
-    { name: "Williams, AZ", href: "/williams-az-boxing" },
-    { name: "Route 66 Area", href: "/route-66-boxing" },
-    { name: "Northern Arizona", href: "/northern-arizona-boxing" },
+    { name: "Williams, AZ", href: "/williams-az-boxing", id: "williams" },
+    { name: "Route 66 Area", href: "/route-66-boxing", id: "route66" },
+    { name: "Northern Arizona", href: "/northern-arizona-boxing", id: "northern-az" },
   ];
 
   return (
@@ -94,6 +94,7 @@ export function Navigation() {
                       key={service.href}
                       href={service.href}
                       className="block px-4 py-3 text-sm text-gray-300 hover:text-white hover:bg-white/5 transition-colors"
+                      data-testid={`link-service-${service.id}`}
                     >
                       {service.name}
                     </a>
@@ -126,6 +127,7 @@ export function Navigation() {
                       key={loc.href}
                       href={loc.href}
                       className="block px-4 py-3 text-sm text-gray-300 hover:text-white hover:bg-white/5 transition-colors"
+                      data-testid={`link-location-${loc.id}`}
                     >
                       {loc.name}
                     </a>
@@ -197,6 +199,7 @@ export function Navigation() {
                       href={service.href}
                       className="block text-white font-medium py-1"
                       onClick={() => setIsOpen(false)}
+                      data-testid={`link-mobile-service-${service.id}`}
                     >
                       {service.name}
                     </a>
@@ -213,6 +216,7 @@ export function Navigation() {
                       href={loc.href}
                       className="block text-white font-medium py-1"
                       onClick={() => setIsOpen(false)}
+                      data-testid={`link-mobile-location-${loc.id}`}
                     >
                       {loc.name}
                     </a>

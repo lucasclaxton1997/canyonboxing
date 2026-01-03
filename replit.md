@@ -7,6 +7,22 @@ A high-end website for Canyon Boxing Club, a mobile boxing personal training ser
 - Full single-page website with Hero, About, Mobile Service, Regimen, Testimonials, Pricing, and Footer sections
 - Functional booking system with database storage and double-booking prevention
 - Real-time availability checking for time slots
+- SEO-optimized service and location pages for better search visibility
+
+## SEO Pages
+Service pages (detailed content for each offering):
+- /one-on-one-boxing - Elite 1-on-1 Boxing Personal Training
+- /group-boxing - Mobile Group Boxing Workouts
+
+Location pages (targeting local search terms):
+- /williams-az-boxing - Mobile Boxing Personal Training in Williams, AZ
+- /route-66-boxing - Boxing Coach on Historic Route 66
+- /northern-arizona-boxing - Mobile Boxing Personal Training in Northern Arizona
+
+SEO assets:
+- sitemap.xml - Lists all pages for search engines
+- robots.txt - Allows crawling and references sitemap
+- Custom useSEO hook for per-page meta tag management
 
 ## Tech Stack
 - Frontend: React, Vite, TailwindCSS, Framer Motion, TanStack Query
