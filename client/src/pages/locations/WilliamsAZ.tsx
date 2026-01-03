@@ -173,7 +173,7 @@ export default function WilliamsAZ() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-24 bg-brand-red">
+      <section className="py-24 bg-gradient-to-r from-brand-red to-brand-orange">
         <div className="container mx-auto px-6 text-center">
           <h2 className="text-3xl md:text-4xl font-heading font-bold text-white mb-6 uppercase italic tracking-tighter">
             Start Training in Williams Today
