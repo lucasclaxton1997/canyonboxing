@@ -215,7 +215,7 @@ export default function GroupBoxing() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-24 bg-brand-orange">
+      <section className="py-24 bg-gradient-to-r from-brand-orange to-brand-red">
         <div className="container mx-auto px-6 text-center">
           <h2 className="text-3xl md:text-4xl font-heading font-bold text-white mb-6 uppercase italic tracking-tighter">
             Ready to Train as a Team?
