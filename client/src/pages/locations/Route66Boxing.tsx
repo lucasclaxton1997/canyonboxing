@@ -44,8 +44,8 @@ export default function Route66Boxing() {
               <Route className="w-5 h-5 text-brand-orange" />
               <span className="text-brand-orange font-bold uppercase tracking-[0.3em] text-sm">Historic Route 66</span>
             </div>
-            <h1 className="text-4xl md:text-6xl lg:text-7xl font-heading font-bold text-white mb-6 uppercase italic tracking-tighter leading-tight pr-4">
-              Boxing Training on <br />
+            <h1 className="text-2xl sm:text-3xl md:text-5xl lg:text-6xl font-heading font-bold text-white mb-6 uppercase italic tracking-tighter leading-tight pr-4">
+              Boxing Training on{" "}
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-orange to-brand-red inline-block pr-2">
                 The Mother Road
               </span>
