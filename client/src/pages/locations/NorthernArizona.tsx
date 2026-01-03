@@ -43,19 +43,18 @@ export default function NorthernArizona() {
   return (
     <PageLayout>
       {/* Hero Section */}
-      <section className="relative py-32 bg-zinc-950 border-b border-white/5">
+      <section className="relative pt-40 pb-24 bg-zinc-950 border-b border-white/5">
         <div className="container mx-auto px-6">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
-            className="max-w-4xl"
           >
             <div className="flex items-center gap-3 mb-6">
               <Mountain className="w-5 h-5 text-brand-red" />
               <span className="text-brand-red font-bold uppercase tracking-[0.3em] text-sm">Northern Arizona</span>
             </div>
-            <h1 className="text-4xl md:text-6xl lg:text-7xl font-heading font-bold text-white mb-6 uppercase italic tracking-tighter leading-none">
+            <h1 className="text-4xl md:text-6xl lg:text-7xl font-heading font-bold text-white mb-6 uppercase italic tracking-tighter leading-tight">
               Boxing Training in <br />
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-red to-brand-orange">
                 Northern Arizona
