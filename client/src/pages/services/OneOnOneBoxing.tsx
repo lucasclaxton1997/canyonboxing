@@ -5,6 +5,7 @@ import { PageLayout } from "@/components/PageLayout";
 import { BookingModal } from "@/components/BookingModal";
 import { useSEO } from "@/hooks/useSEO";
 import { Check, Target, Brain, Zap, Clock } from "lucide-react";
+import videoSrc from "@assets/video-output-4E8AFFB4-5A1C-457D-A122-BD3FE5338B76_1767328015012.mp4";
 
 export default function OneOnOneBoxing() {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -50,8 +51,21 @@ export default function OneOnOneBoxing() {
   return (
     <PageLayout>
       {/* Hero Section */}
-      <section className="relative pt-40 pb-24 bg-zinc-950 border-b border-white/5">
-        <div className="container mx-auto px-6">
+      <section className="relative pt-40 pb-24 bg-zinc-950 border-b border-white/5 overflow-hidden">
+        {/* Background Video */}
+        <div className="absolute inset-0 z-0">
+          <div className="absolute inset-0 bg-zinc-950/70 z-10" />
+          <video 
+            src={videoSrc}
+            autoPlay 
+            muted 
+            loop 
+            playsInline
+            className="w-full h-full object-cover saturate-50 brightness-50"
+          />
+        </div>
+        
+        <div className="container mx-auto px-6 relative z-10">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
