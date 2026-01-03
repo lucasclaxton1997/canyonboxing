@@ -23,8 +23,8 @@ export default function Route66Boxing() {
 
   const route66Towns = [
     { name: "Williams", distance: "Home Base" },
-    { name: "Ash Fork", distance: "20 min" },
-    { name: "Seligman", distance: "40 min" },
+    { name: "Ash Fork", distance: "40 min" },
+    { name: "Seligman", distance: "20 min" },
     { name: "Parks", distance: "15 min" },
     { name: "Bellemont", distance: "25 min" },
     { name: "Flagstaff (West)", distance: "35 min" }
