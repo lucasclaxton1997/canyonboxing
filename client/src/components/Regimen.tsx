@@ -1,10 +1,10 @@
 import { motion } from "framer-motion";
-import { Dumbbell, Shield, Activity, Zap, Timer, Users } from "lucide-react";
+import { Dumbbell, Shield, Activity, Zap, Timer, Users, Flame } from "lucide-react";
 import trainingImage from "@assets/generated_images/boxing_padwork_action_shot.png";
 
 const trainingItems = [
   {
-    icon: Activity,
+    icon: Flame,
     title: "Dynamic Stretches",
     description: "Prepare the body for explosive movement with boxing-specific mobility work."
   },
