@@ -18,9 +18,9 @@ export function About() {
             transition={{ duration: 0.8 }}
             className="relative"
           >
-            <h3 className="text-xl font-heading font-bold text-white uppercase italic tracking-wider mb-4 text-center md:text-left">
-              Meet Our Coach
-            </h3>
+            <h2 className="text-4xl md:text-5xl font-heading font-bold text-white mb-6 uppercase italic tracking-tighter text-center md:text-left">
+              Meet Our <span className="text-brand-red">Coach</span>
+            </h2>
             <div className="absolute top-8 -inset-x-4 -bottom-4 bg-brand-red/20 blur-xl rounded-full opacity-50" />
             <div className="relative aspect-[3/4] w-full max-w-md mx-auto md:mr-auto overflow-hidden border border-white/10">
               <img 
