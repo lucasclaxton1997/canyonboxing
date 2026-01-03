@@ -50,8 +50,8 @@ export function Navigation() {
   return (
     <nav
       className={cn(
-        "fixed top-0 left-0 right-0 z-50 transition-all duration-300 border-b border-transparent",
-        scrolled ? "bg-background/80 backdrop-blur-md border-white/5 py-4" : "py-6 bg-transparent"
+        "fixed top-0 left-0 right-0 z-50 transition-all duration-300 border-b bg-background/90 backdrop-blur-md",
+        scrolled ? "border-white/5 py-4" : "border-transparent py-6"
       )}
     >
       <div className="container mx-auto px-6 flex items-center justify-between">
