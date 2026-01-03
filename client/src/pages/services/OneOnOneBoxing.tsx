@@ -8,12 +8,6 @@ import { Check, Target, Brain, Zap, Clock } from "lucide-react";
 
 export default function OneOnOneBoxing() {
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const [sessionType, setSessionType] = useState<"1on1" | "group">("1on1");
-
-  const openBooking = (type: "1on1" | "group") => {
-    setSessionType(type);
-    setIsModalOpen(true);
-  };
 
   useSEO({
     title: "1-on-1 Boxing Personal Training",
@@ -79,25 +73,14 @@ export default function OneOnOneBoxing() {
               Whether you're a complete beginner or looking to sharpen your skills, 
               our mobile personal training brings elite instruction directly to you.
             </p>
-            <div className="flex flex-col sm:flex-row gap-4">
-              <Button 
-                size="lg"
-                className="bg-brand-red hover:bg-red-700 text-white text-lg font-bold uppercase tracking-widest px-8 py-6 rounded-none"
-                onClick={() => openBooking("1on1")}
-                data-testid="button-hero-book-1on1"
-              >
-                Book 1-on-1
-              </Button>
-              <Button 
-                size="lg"
-                variant="outline"
-                className="border-brand-orange text-brand-orange hover:bg-brand-orange/10 text-lg font-bold uppercase tracking-widest px-8 py-6 rounded-none"
-                onClick={() => openBooking("group")}
-                data-testid="button-hero-book-group"
-              >
-                Book Group
-              </Button>
-            </div>
+            <Button 
+              size="lg"
+              className="bg-brand-red hover:bg-red-700 text-white text-lg font-bold uppercase tracking-widest px-8 py-6 rounded-none"
+              onClick={() => setIsModalOpen(true)}
+              data-testid="button-hero-book"
+            >
+              Book Your Session
+            </Button>
           </motion.div>
         </div>
       </section>
@@ -168,22 +151,13 @@ export default function OneOnOneBoxing() {
               <p className="text-sm text-gray-500 mb-6">
                 All bookings require a $10 deposit, applied to your session fee.
               </p>
-              <div className="space-y-3">
-                <Button 
-                  className="w-full bg-white text-black hover:bg-gray-200 rounded-none font-bold uppercase tracking-widest"
-                  onClick={() => openBooking("1on1")}
-                  data-testid="button-pricing-book-1on1"
-                >
-                  Book 1-on-1
-                </Button>
-                <Button 
-                  className="w-full bg-brand-orange hover:bg-orange-600 text-white rounded-none font-bold uppercase tracking-widest"
-                  onClick={() => openBooking("group")}
-                  data-testid="button-pricing-book-group"
-                >
-                  Book Group
-                </Button>
-              </div>
+              <Button 
+                className="w-full bg-white text-black hover:bg-gray-200 rounded-none font-bold uppercase tracking-widest"
+                onClick={() => setIsModalOpen(true)}
+                data-testid="button-pricing-book"
+              >
+                Book Now
+              </Button>
             </div>
           </div>
         </div>
@@ -230,18 +204,10 @@ export default function OneOnOneBoxing() {
             <Button 
               size="lg"
               className="bg-white text-brand-red hover:bg-gray-100 text-lg font-bold uppercase tracking-widest px-8 py-6 rounded-none"
-              onClick={() => openBooking("1on1")}
-              data-testid="button-cta-book-1on1"
+              onClick={() => setIsModalOpen(true)}
+              data-testid="button-cta-book"
             >
-              Book 1-on-1
-            </Button>
-            <Button 
-              size="lg"
-              className="bg-black/20 text-white hover:bg-black/30 text-lg font-bold uppercase tracking-widest px-8 py-6 rounded-none border border-white/30"
-              onClick={() => openBooking("group")}
-              data-testid="button-cta-book-group"
-            >
-              Book Group
+              Book Session
             </Button>
             <Button 
               size="lg"
@@ -258,7 +224,7 @@ export default function OneOnOneBoxing() {
       <BookingModal 
         isOpen={isModalOpen} 
         onClose={() => setIsModalOpen(false)} 
-        sessionType={sessionType}
+        sessionType="1on1"
       />
     </PageLayout>
   );

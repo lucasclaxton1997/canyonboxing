@@ -8,12 +8,6 @@ import { Users, Flame, Trophy, Heart, Check } from "lucide-react";
 
 export default function GroupBoxing() {
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const [sessionType, setSessionType] = useState<"1on1" | "group">("group");
-
-  const openBooking = (type: "1on1" | "group") => {
-    setSessionType(type);
-    setIsModalOpen(true);
-  };
 
   useSEO({
     title: "Group Boxing Training",
@@ -81,25 +75,14 @@ export default function GroupBoxing() {
               deliver high-intensity training, team camaraderie, and expert coaching 
               for up to 8 participants.
             </p>
-            <div className="flex flex-col sm:flex-row gap-4">
-              <Button 
-                size="lg"
-                className="bg-brand-orange hover:bg-orange-600 text-white text-lg font-bold uppercase tracking-widest px-8 py-6 rounded-none"
-                onClick={() => openBooking("group")}
-                data-testid="button-hero-book-group"
-              >
-                Book Group
-              </Button>
-              <Button 
-                size="lg"
-                variant="outline"
-                className="border-brand-red text-brand-red hover:bg-brand-red/10 text-lg font-bold uppercase tracking-widest px-8 py-6 rounded-none"
-                onClick={() => openBooking("1on1")}
-                data-testid="button-hero-book-1on1"
-              >
-                Book 1-on-1
-              </Button>
-            </div>
+            <Button 
+              size="lg"
+              className="bg-brand-orange hover:bg-orange-600 text-white text-lg font-bold uppercase tracking-widest px-8 py-6 rounded-none"
+              onClick={() => setIsModalOpen(true)}
+              data-testid="button-hero-book"
+            >
+              Book Your Group
+            </Button>
           </motion.div>
         </div>
       </section>
@@ -162,22 +145,13 @@ export default function GroupBoxing() {
               <p className="text-sm text-gray-500 mb-6">
                 All bookings require a $10 deposit. Groups must be formed prior to booking.
               </p>
-              <div className="space-y-3">
-                <Button 
-                  className="w-full bg-brand-orange hover:bg-orange-600 text-white rounded-none font-bold uppercase tracking-widest"
-                  onClick={() => openBooking("group")}
-                  data-testid="button-pricing-book-group"
-                >
-                  Book Group
-                </Button>
-                <Button 
-                  className="w-full bg-white text-black hover:bg-gray-200 rounded-none font-bold uppercase tracking-widest"
-                  onClick={() => openBooking("1on1")}
-                  data-testid="button-pricing-book-1on1"
-                >
-                  Book 1-on-1
-                </Button>
-              </div>
+              <Button 
+                className="w-full bg-brand-orange hover:bg-orange-600 text-white rounded-none font-bold uppercase tracking-widest"
+                onClick={() => setIsModalOpen(true)}
+                data-testid="button-pricing-book"
+              >
+                Book Your Group
+              </Button>
             </div>
             <div>
               <h2 className="text-3xl md:text-4xl font-heading font-bold text-white mb-8 uppercase italic tracking-tighter">
@@ -255,18 +229,10 @@ export default function GroupBoxing() {
             <Button 
               size="lg"
               className="bg-white text-brand-orange hover:bg-gray-100 text-lg font-bold uppercase tracking-widest px-8 py-6 rounded-none"
-              onClick={() => openBooking("group")}
-              data-testid="button-cta-book-group"
+              onClick={() => setIsModalOpen(true)}
+              data-testid="button-cta-book"
             >
-              Book Group
-            </Button>
-            <Button 
-              size="lg"
-              className="bg-black/20 text-white hover:bg-black/30 text-lg font-bold uppercase tracking-widest px-8 py-6 rounded-none border border-white/30"
-              onClick={() => openBooking("1on1")}
-              data-testid="button-cta-book-1on1"
-            >
-              Book 1-on-1
+              Book Group Session
             </Button>
             <Button 
               size="lg"
@@ -283,7 +249,7 @@ export default function GroupBoxing() {
       <BookingModal 
         isOpen={isModalOpen} 
         onClose={() => setIsModalOpen(false)} 
-        sessionType={sessionType}
+        sessionType="group"
       />
     </PageLayout>
   );
