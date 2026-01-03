@@ -174,7 +174,7 @@ export default function Route66Boxing() {
       <section className="py-24 bg-brand-orange">
         <div className="container mx-auto px-6 text-center">
           <h2 className="text-3xl md:text-4xl font-heading font-bold text-white mb-6 uppercase italic tracking-tighter">
-            Get Your Kicks on Route 66
+            Get Your Punches On Route 66
           </h2>
           <p className="text-white/80 max-w-2xl mx-auto mb-8 font-light text-lg">
             Book your boxing session today. We serve every town along Arizona's 
