@@ -6,9 +6,9 @@ import { BookingModal } from "@/components/BookingModal";
 import { useSEO } from "@/hooks/useSEO";
 import { Check, Target, Brain, Zap, Clock } from "lucide-react";
 import videoSrc from "@assets/video-output-4E8AFFB4-5A1C-457D-A122-BD3FE5338B76_1767328015012.mp4";
-import beginnerImage from "@assets/generated_images/beginner_learning_boxing_basics.png";
-import fitnessImage from "@assets/generated_images/fitness_boxing_workout_action.png";
-import experiencedImage from "@assets/generated_images/experienced_boxer_advanced_training.png";
+import beginnerImage from "@assets/generated_images/male_eurasian_coach_beginner_lesson.png";
+import fitnessImage from "@assets/generated_images/male_eurasian_coach_fitness_workout.png";
+import experiencedImage from "@assets/generated_images/male_eurasian_coach_advanced_session.png";
 
 export default function OneOnOneBoxing() {
   const [isModalOpen, setIsModalOpen] = useState(false);
