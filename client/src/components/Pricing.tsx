@@ -21,8 +21,10 @@ export function Pricing() {
             Invest in Yourself
           </h2>
           <p className="text-gray-400 max-w-xl mx-auto font-light">
-            Professional coaching tailored to your goals. 
-            <span className="text-brand-orange font-bold">First session is 50% off!</span>
+            Professional coaching tailored to your goals.
+          </p>
+          <p className="text-brand-orange font-bold text-lg mt-2">
+            First session is 50% off!
           </p>
         </div>
 
