@@ -6,7 +6,7 @@ import { BookingModal } from "@/components/BookingModal";
 import { useSEO } from "@/hooks/useSEO";
 import { SEOSchema, CANYON_BOXING_BUSINESS } from "@/components/SEOSchema";
 import { Users, Flame, Trophy, Heart, Check } from "lucide-react";
-import groupVideo from "@assets/v09044g40000c793fs3c77u96l7a071g_1767486729733-B3Dw8w0E.mov";
+import groupVideo from "@assets/v12044gd0000c7koifjc77u1cb8s2n4g_1767487982142.mov";
 
 export default function GroupBoxing() {
   const [isModalOpen, setIsModalOpen] = useState(false);
