@@ -5,10 +5,11 @@ import path from "path";
 export default defineConfig({
   base: '/canyonboxing/',
   root: path.resolve(__dirname, "client"),
-  plugins: [react()], // We removed the tailwindcss() plugin here
+  plugins: [react()],
   resolve: {
     alias: {
       "@": path.resolve(__dirname, "client/src"),
+      "@assets": path.resolve(__dirname, "client/public/assets"),
     },
   },
   build: {
