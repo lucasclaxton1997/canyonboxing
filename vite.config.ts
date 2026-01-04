@@ -1,16 +1,23 @@
 import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
-import tailwindcss from "@tailwindcss/vite"; // 1. Import this
+import tailwindcss from "@tailwindcss/vite";
 import path from "path";
 
 export default defineConfig({
+  base: '/canyonboxing/', 
   plugins: [
     react(),
-    tailwindcss(), // 2. Add this here
+    tailwindcss(),
   ],
   resolve: {
     alias: {
-      "@": path.resolve(__dirname, "./src"),
+      "@": path.resolve(__dirname, "./client/src"),
+      "@db": path.resolve(__dirname, "./db"),
     },
+  },
+  root: path.resolve(__dirname, "./client"),
+  build: {
+    outDir: path.resolve(__dirname, "./dist/public"),
+    emptyOutDir: true,
   },
 });
