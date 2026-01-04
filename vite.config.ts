@@ -5,6 +5,7 @@ import path from "path";
 export default defineConfig({
   base: '/canyonboxing/',
   root: path.resolve(__dirname, "client"),
+  publicDir: path.resolve(__dirname, "client/public"),
   plugins: [react()],
   resolve: {
     alias: {
@@ -15,5 +16,6 @@ export default defineConfig({
   build: {
     outDir: path.resolve(__dirname, "dist/public"),
     emptyOutDir: true,
+    assetsInlineLimit: 0, // Don't try to inline large videos
   },
 });
