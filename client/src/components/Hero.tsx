@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
-import heroVideo from "@assets/v09044g40000c5ovcbbc77u7vuv3msqg_1767485095328.mov";
+ // Removed import: /v09044g40000c5ovcbbc77u7vuv3msqg_1767485095328.mov";
 
 export function Hero() {
   return (
@@ -18,7 +18,7 @@ export function Hero() {
           aria-label="Boxing training in Grand Canyon Arizona - Mobile boxing personal training with dramatic canyon views"
           data-testid="video-hero-background"
         >
-          <source src={heroVideo} type="video/quicktime" />
+          <source src="/canyonboxing/assets/generated_images/placeholder.png" type="video/quicktime" />
           Your browser does not support the video tag.
         </video>
       </div>

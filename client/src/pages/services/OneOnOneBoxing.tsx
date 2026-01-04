@@ -6,10 +6,10 @@ import { BookingModal } from "@/components/BookingModal";
 import { useSEO } from "@/hooks/useSEO";
 import { SEOSchema, CANYON_BOXING_BUSINESS } from "@/components/SEOSchema";
 import { Check, Target, Brain, Zap, Clock } from "lucide-react";
-import videoSrc from "@assets/video-output-4E8AFFB4-5A1C-457D-A122-BD3FE5338B76_1767328015012.mp4";
-import beginnerImage from "@assets/generated_images/beginner_practicing_boxing_stance.png";
-import fitnessImage from "@assets/generated_images/fitness_seeker_boxing_workout.png";
-import experiencedImage from "@assets/generated_images/experienced_boxer_solo_training.png";
+ // Removed import: /video-output-4E8AFFB4-5A1C-457D-A122-BD3FE5338B76_1767328015012.mp4";
+ // Removed import: /generated_images/beginner_practicing_boxing_stance.png";
+ // Removed import: /generated_images/fitness_seeker_boxing_workout.png";
+ // Removed import: /generated_images/experienced_boxer_solo_training.png";
 
 export default function OneOnOneBoxing() {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -78,7 +78,7 @@ export default function OneOnOneBoxing() {
         <div className="absolute inset-0 z-0">
           <div className="absolute inset-0 bg-zinc-950/70 z-10" />
           <video 
-            src={videoSrc}
+            src="/canyonboxing/assets/generated_images/placeholder.png"
             autoPlay 
             muted 
             loop 
@@ -211,7 +211,7 @@ export default function OneOnOneBoxing() {
           <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
             <div className="glass-panel overflow-hidden">
               <img 
-                src={beginnerImage} 
+                src="/canyonboxing/assets/generated_images/placeholder.png" 
                 alt="Beginner boxing lesson with personal trainer teaching proper stance and technique in Williams Arizona" 
                 className="w-full aspect-[4/3] object-cover saturate-75 brightness-90"
               />
@@ -222,7 +222,7 @@ export default function OneOnOneBoxing() {
             </div>
             <div className="glass-panel overflow-hidden">
               <img 
-                src={fitnessImage} 
+                src="/canyonboxing/assets/generated_images/placeholder.png" 
                 alt="High-intensity boxing fitness workout for weight loss and cardio training in Northern Arizona" 
                 className="w-full aspect-[4/3] object-cover saturate-75 brightness-90"
               />
@@ -233,7 +233,7 @@ export default function OneOnOneBoxing() {
             </div>
             <div className="glass-panel overflow-hidden">
               <img 
-                src={experiencedImage} 
+                src="/canyonboxing/assets/generated_images/placeholder.png" 
                 alt="Advanced boxing training session for experienced fighters and competitive boxers on Route 66" 
                 className="w-full aspect-[4/3] object-cover saturate-75 brightness-90"
               />

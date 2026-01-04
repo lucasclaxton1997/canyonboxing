@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import coachImage from "@assets/IMG_0691_1767233211002.jpeg";
+ // Removed import: /IMG_0691_1767233211002.jpeg";
 
 export function About() {
   return (
@@ -24,7 +24,7 @@ export function About() {
             <div className="absolute top-8 -inset-x-4 -bottom-4 bg-brand-red/20 blur-xl rounded-full opacity-50" />
             <div className="relative aspect-[3/4] w-full max-w-md mx-auto md:mr-auto overflow-hidden border border-white/10">
               <img 
-                src={coachImage} 
+                src="/canyonboxing/assets/generated_images/placeholder.png" 
                 alt="Lucas Claxton" 
                 className="w-full h-full object-cover transition-all duration-700 object-[75%_center] saturate-50 brightness-75"
                 data-testid="img-coach-lucas"

@@ -6,7 +6,7 @@ import { BookingModal } from "@/components/BookingModal";
 import { useSEO } from "@/hooks/useSEO";
 import { SEOSchema, CANYON_BOXING_BUSINESS } from "@/components/SEOSchema";
 import { Users, Flame, Trophy, Heart, Check } from "lucide-react";
-import heroVideo from "@assets/v12044gd0000c7koifjc77u1cb8s2n4g_1767487982142.mov";
+ // Removed import: /v12044gd0000c7koifjc77u1cb8s2n4g_1767487982142.mov";
 
 export default function GroupBoxing() {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -86,7 +86,7 @@ export default function GroupBoxing() {
             aria-label="Group boxing training Arizona - Mobile team boxing workouts and fitness classes"
             data-testid="video-hero-background"
           >
-            <source src={heroVideo} type="video/quicktime" />
+            <source src="/canyonboxing/assets/generated_images/placeholder.png" type="video/quicktime" />
             Your browser does not support the video tag.
           </video>
         </div>
