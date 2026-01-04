@@ -6,7 +6,7 @@ import { BookingModal } from "@/components/BookingModal";
 import { useSEO } from "@/hooks/useSEO";
 import { SEOSchema, CANYON_BOXING_BUSINESS } from "@/components/SEOSchema";
 import { Users, Flame, Trophy, Heart, Check } from "lucide-react";
-import heroVideo from "@assets/v12044gd0000c7koifjc77u1cb8s2n4g_1767487982142.mov";
+import groupVideo from "@assets/v09044g40000c793fs3c77u96l7a071g_1767486729733-B3Dw8w0E.mov";
 
 export default function GroupBoxing() {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -77,16 +77,18 @@ export default function GroupBoxing() {
         <div className="absolute inset-0 z-0">
           <div className="absolute inset-0 bg-gradient-to-t from-zinc-950 via-zinc-950/60 to-transparent z-10" />
           <div className="absolute inset-0 bg-black/50 z-10" />
-          <video
-            autoPlay
-            muted
-            loop
-            playsInline
+          <<video 
+            autoPlay 
+            muted 
+            loop 
+            playsInline 
             className="w-full h-full object-cover"
             aria-label="Group boxing training Arizona - Mobile team boxing workouts and fitness classes"
             data-testid="video-hero-background"
           >
-            <source src={heroVideo} type="video/quicktime" />
+            {/* Change heroVideo to groupVideo here */}
+            <source src={groupVideo} type="video/quicktime" />
+            <source src={groupVideo} type="video/mp4" /> 
             Your browser does not support the video tag.
           </video>
         </div>
