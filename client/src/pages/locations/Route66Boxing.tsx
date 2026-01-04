@@ -5,7 +5,7 @@ import { PageLayout } from "@/components/PageLayout";
 import { BookingModal } from "@/components/BookingModal";
 import { useSEO } from "@/hooks/useSEO";
 import { MapPin, Phone, Route, Star } from "lucide-react";
-import heroVideo from "@assets/v09044g40000c793fs3c77u96l7a071g_1767485303318.mov";
+import heroVideo from "@assets/v09044g40000c793fs3c77u96l7a071g_1767485496511.mov";
 
 export default function Route66Boxing() {
   const [isModalOpen, setIsModalOpen] = useState(false);
