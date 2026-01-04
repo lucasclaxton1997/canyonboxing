@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://canyonboxing.com/sitemap.xml
+Sitemap: https://lucasclaxton1997.github.io/canyonboxing/sitemap.xml
