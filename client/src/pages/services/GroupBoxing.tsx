@@ -5,6 +5,7 @@ import { PageLayout } from "@/components/PageLayout";
 import { BookingModal } from "@/components/BookingModal";
 import { useSEO } from "@/hooks/useSEO";
 import { Users, Flame, Trophy, Heart, Check } from "lucide-react";
+import heroVideo from "@assets/v12044gd0000c7koifjc77u1cb8s2n4g_1767487328537.mov";
 
 export default function GroupBoxing() {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -52,8 +53,26 @@ export default function GroupBoxing() {
   return (
     <PageLayout>
       {/* Hero Section */}
-      <section className="relative pt-40 pb-24 bg-zinc-950 border-b border-white/5">
-        <div className="container mx-auto px-6">
+      <section className="relative pt-40 pb-24 bg-zinc-950 border-b border-white/5 overflow-hidden">
+        {/* Background Video */}
+        <div className="absolute inset-0 z-0">
+          <div className="absolute inset-0 bg-gradient-to-t from-zinc-950 via-zinc-950/60 to-transparent z-10" />
+          <div className="absolute inset-0 bg-black/50 z-10" />
+          <video
+            autoPlay
+            muted
+            loop
+            playsInline
+            className="w-full h-full object-cover"
+            aria-label="Group boxing training Arizona - Mobile team boxing workouts and fitness classes"
+            data-testid="video-hero-background"
+          >
+            <source src={heroVideo} type="video/quicktime" />
+            Your browser does not support the video tag.
+          </video>
+        </div>
+        
+        <div className="container mx-auto px-6 relative z-20">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
