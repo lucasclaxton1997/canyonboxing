@@ -8,15 +8,9 @@ export function Pricing() {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [selectedType, setSelectedType] = useState<"1on1" | "group">("1on1");
 
-  const calendly1on1Url = "https://calendly.com/lucasslclaxton/1-on-1-boxing-training";
-
   const handleBook = (type: "1on1" | "group") => {
-    if (type === "1on1") {
-      window.open(calendly1on1Url, "_blank");
-    } else {
-      setSelectedType(type);
-      setIsModalOpen(true);
-    }
+    setSelectedType(type);
+    setIsModalOpen(true);
   };
 
   return (

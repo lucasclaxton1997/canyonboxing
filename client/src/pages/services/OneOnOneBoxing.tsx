@@ -12,7 +12,6 @@ import experiencedImage from "@assets/generated_images/experienced_boxer_solo_tr
 
 export default function OneOnOneBoxing() {
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const calendly1on1Url = "https://calendly.com/lucasslclaxton/1-on-1-boxing-training";
 
   useSEO({
     title: "1-on-1 Boxing Personal Training",
@@ -93,7 +92,7 @@ export default function OneOnOneBoxing() {
             <Button 
               size="lg"
               className="bg-brand-red hover:bg-red-700 text-white text-lg font-bold uppercase tracking-widest px-8 py-6 rounded-none"
-              onClick={() => window.open(calendly1on1Url, "_blank")}
+              onClick={() => setIsModalOpen(true)}
               data-testid="button-hero-book"
             >
               Book Your Session
@@ -242,7 +241,7 @@ export default function OneOnOneBoxing() {
             <Button 
               size="lg"
               className="bg-white text-brand-red hover:bg-gray-100 text-lg font-bold uppercase tracking-widest px-8 py-6 rounded-none"
-              onClick={() => window.open(calendly1on1Url, "_blank")}
+              onClick={() => setIsModalOpen(true)}
               data-testid="button-cta-book"
             >
               Book Session

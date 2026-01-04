@@ -11,15 +11,9 @@ export default function Route66Boxing() {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [sessionType, setSessionType] = useState<"1on1" | "group">("1on1");
 
-  const calendly1on1Url = "https://calendly.com/lucasslclaxton/1-on-1-boxing-training";
-
   const openBooking = (type: "1on1" | "group") => {
-    if (type === "1on1") {
-      window.open(calendly1on1Url, "_blank");
-    } else {
-      setSessionType(type);
-      setIsModalOpen(true);
-    }
+    setSessionType(type);
+    setIsModalOpen(true);
   };
 
   useSEO({

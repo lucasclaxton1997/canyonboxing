@@ -1,44 +1,8 @@
-import { useState, useEffect } from "react";
+import { useEffect } from "react";
 import { Dialog, DialogContent } from "@/components/ui/dialog";
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Label } from "@/components/ui/label";
-import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
-import { CreditCard, Phone, Calendar, MapPin, Loader2 } from "lucide-react";
-import { useToast } from "@/hooks/use-toast";
-import { zodResolver } from "@hookform/resolvers/zod";
-import { useForm } from "react-hook-form";
-import * as z from "zod";
-import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
-import { Calendar as CalendarComponent } from "@/components/ui/calendar";
-import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
-import { format } from "date-fns";
-import { cn } from "@/lib/utils";
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
-import { useMutation, useQuery } from "@tanstack/react-query";
-import { apiRequest } from "@/lib/queryClient";
+import { X } from "lucide-react";
 
-interface AvailabilityResponse {
-  date: string;
-  availableSlots: string[];
-  bookedSlots: string[];
-}
-
-const bookingSchema = z.object({
-  name: z.string().min(2, "Name is required"),
-  phone: z.string().min(10, "Invalid phone number"),
-  zipcode: z.string().min(5, "Invalid Zipcode"),
-  date: z.date({ required_error: "Please select a date" }),
-  time: z.string().min(1, "Please select a time"),
-  sessionType: z.enum(["1on1", "group"]),
-  duration: z.enum(["30", "60"]),
-});
-
-const allTimeSlots = [
-  "08:00 AM", "09:00 AM", "10:00 AM", "11:00 AM",
-  "01:00 PM", "02:00 PM", "03:00 PM", "04:00 PM",
-  "05:00 PM", "06:00 PM"
-];
+const CALENDLY_URL = "https://calendly.com/lucasslclaxton/boxing-training";
 
 export function BookingModal({ 
   isOpen, 
@@ -49,327 +13,41 @@ export function BookingModal({
   onClose: () => void; 
   sessionType: "1on1" | "group";
 }) {
-  const { toast } = useToast();
-  const [step, setStep] = useState(1);
-  const [selectedDate, setSelectedDate] = useState<Date | undefined>();
-  const [isSubmitting, setIsSubmitting] = useState(false);
-
-  const form = useForm<z.infer<typeof bookingSchema>>({
-    resolver: zodResolver(bookingSchema),
-    defaultValues: {
-      name: "",
-      phone: "",
-      zipcode: "",
-      sessionType: sessionType,
-      duration: "60",
-      time: "",
-    },
-  });
-
-  // Update session type if it changes via props
   useEffect(() => {
-    form.setValue("sessionType", sessionType);
-  }, [sessionType, form]);
+    if (isOpen) {
+      const script = document.createElement('script');
+      script.src = 'https://assets.calendly.com/assets/external/widget.js';
+      script.async = true;
+      document.body.appendChild(script);
 
-  // Fetch available time slots when date is selected
-  const { data: availabilityData, isLoading: isLoadingSlots } = useQuery<AvailabilityResponse>({
-    queryKey: ["/api/bookings/availability", selectedDate ? format(selectedDate, "yyyy-MM-dd") : ""],
-    enabled: !!selectedDate,
-  });
-
-  const availableSlots = availabilityData?.availableSlots || allTimeSlots;
-
-  // Booking mutation
-  const bookingMutation = useMutation({
-    mutationFn: async (data: z.infer<typeof bookingSchema>) => {
-      const response = await apiRequest("POST", "/api/bookings", {
-        name: data.name,
-        phone: data.phone,
-        zipcode: data.zipcode,
-        sessionType: data.sessionType,
-        duration: data.duration,
-        date: format(data.date, "yyyy-MM-dd"),
-        time: data.time,
-        depositPaid: true,
-        status: "pending",
-      });
-      return response.json();
-    },
-    onSuccess: () => {
-      toast({
-        title: "Booking Confirmed!",
-        description: "Your $10 deposit has been processed. We'll contact you to confirm.",
-      });
-      form.reset();
-      setStep(1);
-      setSelectedDate(undefined);
-      onClose();
-    },
-    onError: (error: Error) => {
-      const message = error.message.includes("409") 
-        ? "This time slot was just booked. Please select a different time."
-        : "Failed to complete booking. Please try again.";
-      toast({
-        title: "Booking Failed",
-        description: message,
-        variant: "destructive",
-      });
-      if (error.message.includes("409")) {
-        setStep(1);
-      }
-    },
-  });
-
-  const onSubmit = (data: z.infer<typeof bookingSchema>) => {
-    setStep(2); 
-  };
-
-  const handlePayment = () => {
-    setIsSubmitting(true);
-    const formData = form.getValues();
-    bookingMutation.mutate(formData);
-  };
-
-  const handleClose = () => {
-    form.reset();
-    setStep(1);
-    setSelectedDate(undefined);
-    onClose();
-  };
+      return () => {
+        const existingScript = document.querySelector('script[src="https://assets.calendly.com/assets/external/widget.js"]');
+        if (existingScript) {
+          existingScript.remove();
+        }
+      };
+    }
+  }, [isOpen]);
 
   return (
-    <Dialog open={isOpen} onOpenChange={handleClose}>
-      <DialogContent className="bg-zinc-900 border border-white/10 text-white sm:max-w-[550px] p-0 overflow-y-auto max-h-[90vh]">
-        <div className="bg-brand-red p-6 text-center">
-          <h2 className="text-2xl font-heading font-bold uppercase italic text-white tracking-tighter">
-            {sessionType === "1on1" ? "Book 1-on-1 Session" : "Book Group Session"}
-          </h2>
-          <p className="text-white/80 text-sm mt-1 uppercase tracking-widest font-bold">
-            {sessionType === "1on1" ? "Elite Technical Precision" : "High-Energy Team Training"}
-          </p>
-        </div>
+    <Dialog open={isOpen} onOpenChange={(open) => !open && onClose()}>
+      <DialogContent className="max-w-3xl h-[80vh] p-0 bg-zinc-900 border-white/10 overflow-hidden">
+        <button
+          onClick={onClose}
+          className="absolute right-4 top-4 z-50 rounded-sm opacity-70 ring-offset-background transition-opacity hover:opacity-100 focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 disabled:pointer-events-none"
+          data-testid="button-close-modal"
+        >
+          <X className="h-5 w-5 text-white" />
+          <span className="sr-only">Close</span>
+        </button>
         
-        <div className="p-6">
-          {step === 1 ? (
-            <Form {...form}>
-              <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4">
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                  <FormField
-                    control={form.control}
-                    name="name"
-                    render={({ field }) => (
-                      <FormItem>
-                        <FormLabel className="uppercase text-[10px] font-bold tracking-widest text-gray-400">Full Name</FormLabel>
-                        <FormControl>
-                          <Input placeholder="Muhammad Ali" {...field} className="bg-zinc-800 border-white/10 text-white rounded-none focus:ring-brand-red h-10" data-testid="input-booking-name" />
-                        </FormControl>
-                        <FormMessage />
-                      </FormItem>
-                    )}
-                  />
-                  
-                  <FormField
-                    control={form.control}
-                    name="phone"
-                    render={({ field }) => (
-                      <FormItem>
-                        <FormLabel className="uppercase text-[10px] font-bold tracking-widest text-gray-400">Phone Number</FormLabel>
-                        <FormControl>
-                          <div className="relative">
-                            <Phone className="absolute left-3 top-3 h-4 w-4 text-gray-500" />
-                            <Input placeholder="(555) 000-0000" {...field} className="pl-10 bg-zinc-800 border-white/10 text-white rounded-none focus:ring-brand-red h-10" data-testid="input-booking-phone" />
-                          </div>
-                        </FormControl>
-                        <FormMessage />
-                      </FormItem>
-                    )}
-                  />
-                </div>
-
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                   <FormField
-                    control={form.control}
-                    name="zipcode"
-                    render={({ field }) => (
-                      <FormItem>
-                        <FormLabel className="uppercase text-[10px] font-bold tracking-widest text-gray-400">Zipcode</FormLabel>
-                        <FormControl>
-                          <div className="relative">
-                            <MapPin className="absolute left-3 top-3 h-4 w-4 text-gray-500" />
-                            <Input placeholder="86046" {...field} className="pl-10 bg-zinc-800 border-white/10 text-white rounded-none focus:ring-brand-red h-10" data-testid="input-booking-zip" />
-                          </div>
-                        </FormControl>
-                        <FormMessage />
-                      </FormItem>
-                    )}
-                  />
-
-                  <FormField
-                    control={form.control}
-                    name="date"
-                    render={({ field }) => (
-                      <FormItem className="flex flex-col mt-1">
-                        <FormLabel className="uppercase text-[10px] font-bold tracking-widest text-gray-400 mb-2">Training Date</FormLabel>
-                        <Popover>
-                          <PopoverTrigger asChild>
-                            <FormControl>
-                              <Button
-                                variant={"outline"}
-                                className={cn(
-                                  "w-full pl-3 text-left font-normal bg-zinc-800 border-white/10 text-white rounded-none h-10 hover:bg-zinc-700",
-                                  !field.value && "text-muted-foreground"
-                                )}
-                              >
-                                {field.value ? (
-                                  format(field.value, "PPP")
-                                ) : (
-                                  <span>Pick a date</span>
-                                )}
-                                <Calendar className="ml-auto h-4 w-4 opacity-50" />
-                              </Button>
-                            </FormControl>
-                          </PopoverTrigger>
-                          <PopoverContent className="w-auto p-0 bg-zinc-900 border-white/10" align="start">
-                            <CalendarComponent
-                              mode="single"
-                              selected={field.value}
-                              onSelect={(date) => {
-                                field.onChange(date);
-                                setSelectedDate(date);
-                                form.setValue("time", ""); // Reset time when date changes
-                              }}
-                              disabled={(date) =>
-                                date < new Date() || date < new Date("1900-01-01")
-                              }
-                              initialFocus
-                              className="text-white"
-                            />
-                          </PopoverContent>
-                        </Popover>
-                        <FormMessage />
-                      </FormItem>
-                    )}
-                  />
-                </div>
-
-                <FormField
-                  control={form.control}
-                  name="time"
-                  render={({ field }) => (
-                    <FormItem>
-                      <FormLabel className="uppercase text-[10px] font-bold tracking-widest text-gray-400">
-                        Preferred Time
-                        {isLoadingSlots && <Loader2 className="inline ml-2 h-3 w-3 animate-spin" />}
-                      </FormLabel>
-                      <Select onValueChange={field.onChange} value={field.value}>
-                        <FormControl>
-                          <SelectTrigger className="bg-zinc-800 border-white/10 text-white rounded-none h-10">
-                            <SelectValue placeholder={selectedDate ? "Select available time" : "Select a date first"} />
-                          </SelectTrigger>
-                        </FormControl>
-                        <SelectContent className="bg-zinc-900 border-white/10 text-white">
-                          {availableSlots.length > 0 ? (
-                            availableSlots.map((slot: string) => (
-                              <SelectItem key={slot} value={slot}>{slot}</SelectItem>
-                            ))
-                          ) : (
-                            <SelectItem value="none" disabled>No slots available</SelectItem>
-                          )}
-                        </SelectContent>
-                      </Select>
-                      {availabilityData?.bookedSlots && availabilityData.bookedSlots.length > 0 && (
-                        <p className="text-xs text-gray-500 mt-1">
-                          {availabilityData.bookedSlots.length} slot(s) already booked
-                        </p>
-                      )}
-                      <FormMessage />
-                    </FormItem>
-                  )}
-                />
-
-                <div className="pt-2">
-                  <FormField
-                    control={form.control}
-                    name="duration"
-                    render={({ field }) => (
-                      <FormItem className="space-y-3">
-                        <FormLabel className="uppercase text-[10px] font-bold tracking-widest text-gray-400">Duration</FormLabel>
-                        <FormControl>
-                          <RadioGroup
-                            onValueChange={field.onChange}
-                            defaultValue={field.value}
-                            className="flex flex-row space-x-8"
-                          >
-                            <FormItem className="flex items-center space-x-3 space-y-0">
-                              <FormControl>
-                                <RadioGroupItem value="60" className="border-white/20 text-brand-red" />
-                              </FormControl>
-                              <FormLabel className="font-normal text-white text-sm">60 Minutes</FormLabel>
-                            </FormItem>
-                            <FormItem className="flex items-center space-x-3 space-y-0">
-                              <FormControl>
-                                <RadioGroupItem value="30" className="border-white/20 text-brand-red" />
-                              </FormControl>
-                              <FormLabel className="font-normal text-white text-sm">30 Minutes</FormLabel>
-                            </FormItem>
-                          </RadioGroup>
-                        </FormControl>
-                      </FormItem>
-                    )}
-                  />
-                </div>
-
-                <Button type="submit" className="w-full bg-white text-black hover:bg-gray-200 rounded-none uppercase font-bold tracking-widest py-6 mt-4">
-                  Proceed to Deposit ($10)
-                </Button>
-              </form>
-            </Form>
-          ) : (
-            <div className="space-y-6">
-              <div className="bg-zinc-800 p-4 border border-white/5 rounded-sm">
-                <div className="flex justify-between items-center mb-2">
-                  <span className="text-gray-400 text-sm">Booking Deposit</span>
-                  <span className="text-white font-bold">$10.00</span>
-                </div>
-                <div className="text-xs text-gray-500">
-                  Required to secure your slot. Applied to final session fee.
-                </div>
-              </div>
-
-              <div className="space-y-4">
-                <Label className="uppercase text-xs font-bold tracking-wider text-gray-400">Card Details</Label>
-                <div className="relative">
-                  <CreditCard className="absolute left-3 top-3 h-5 w-5 text-gray-400" />
-                  <Input 
-                    placeholder="0000 0000 0000 0000" 
-                    className="pl-10 bg-zinc-800 border-white/10 text-white rounded-none font-mono"
-                  />
-                </div>
-                <div className="grid grid-cols-2 gap-4">
-                  <Input placeholder="MM/YY" className="bg-zinc-800 border-white/10 text-white rounded-none text-center" />
-                  <Input placeholder="CVC" className="bg-zinc-800 border-white/10 text-white rounded-none text-center" />
-                </div>
-              </div>
-
-              <Button 
-                onClick={handlePayment} 
-                disabled={bookingMutation.isPending}
-                className="w-full bg-brand-orange hover:bg-orange-600 text-white rounded-none uppercase font-bold tracking-widest py-6"
-              >
-                {bookingMutation.isPending ? (
-                  <>
-                    <Loader2 className="mr-2 h-4 w-4 animate-spin" />
-                    Processing...
-                  </>
-                ) : (
-                  "Pay $10.00 & Confirm"
-                )}
-              </Button>
-              <Button variant="ghost" onClick={() => setStep(1)} className="w-full text-gray-400 hover:text-white uppercase text-xs">
-                Back to Details
-              </Button>
-            </div>
-          )}
+        <div className="w-full h-full">
+          <div 
+            className="calendly-inline-widget w-full h-full" 
+            data-url={CALENDLY_URL}
+            style={{ minWidth: '320px', height: '100%' }}
+            data-testid="calendly-embed"
+          />
         </div>
       </DialogContent>
     </Dialog>
