@@ -5,7 +5,7 @@ import { PageLayout } from "@/components/PageLayout";
 import { BookingModal } from "@/components/BookingModal";
 import { useSEO } from "@/hooks/useSEO";
 import { Users, Flame, Trophy, Heart, Check } from "lucide-react";
-import heroVideo from "@assets/v12044gd0000c7koifjc77u1cb8s2n4g_1767487328537.mov";
+import heroVideo from "@assets/v12044gd0000c7koifjc77u1cb8s2n4g_1767487982142.mov";
 
 export default function GroupBoxing() {
   const [isModalOpen, setIsModalOpen] = useState(false);
