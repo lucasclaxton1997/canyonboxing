@@ -5,6 +5,7 @@ import { PageLayout } from "@/components/PageLayout";
 import { BookingModal } from "@/components/BookingModal";
 import { useSEO } from "@/hooks/useSEO";
 import { MapPin, Phone, Clock, Star } from "lucide-react";
+import heroVideo from "@assets/v0f044gc0000ch9dgk3c77uall48heeg_1767486405234.mov";
 
 export default function WilliamsAZ() {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -35,8 +36,26 @@ export default function WilliamsAZ() {
   return (
     <PageLayout>
       {/* Hero Section */}
-      <section className="relative pt-32 md:pt-40 pb-16 md:pb-24 bg-zinc-950 border-b border-white/5 min-h-fit overflow-visible">
-        <div className="container mx-auto px-6">
+      <section className="relative pt-32 md:pt-40 pb-16 md:pb-24 bg-zinc-950 border-b border-white/5 min-h-fit overflow-hidden">
+        {/* Background Video */}
+        <div className="absolute inset-0 z-0">
+          <div className="absolute inset-0 bg-gradient-to-t from-zinc-950 via-zinc-950/60 to-transparent z-10" />
+          <div className="absolute inset-0 bg-black/50 z-10" />
+          <video
+            autoPlay
+            muted
+            loop
+            playsInline
+            className="w-full h-full object-cover"
+            aria-label="Boxing training in Williams Arizona - Mobile boxing personal training near Grand Canyon gateway"
+            data-testid="video-hero-background"
+          >
+            <source src={heroVideo} type="video/quicktime" />
+            Your browser does not support the video tag.
+          </video>
+        </div>
+        
+        <div className="container mx-auto px-6 relative z-20">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
