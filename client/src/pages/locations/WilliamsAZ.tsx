@@ -5,7 +5,7 @@ import { PageLayout } from "@/components/PageLayout";
 import { BookingModal } from "@/components/BookingModal";
 import { useSEO } from "@/hooks/useSEO";
 import { MapPin, Phone, Clock, Star } from "lucide-react";
-import heroVideo from "@assets/v0f044gc0000ch9dgk3c77uall48heeg_1767486405234.mov";
+import heroVideo from "@assets/v0f044gc0000ch9dgk3c77uall48heeg_1767486586273.mov";
 
 export default function WilliamsAZ() {
   const [isModalOpen, setIsModalOpen] = useState(false);
