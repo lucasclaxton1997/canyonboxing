@@ -1,17 +1,15 @@
 @import "tailwindcss";
-@import "tw-animate-css";
-
 @plugin "tailwindcss-animate";
 
 @custom-variant dark (&:is(.dark *));
 
-@theme inline {
+@theme {
   --font-sans: "Helvetica Neue", Helvetica, "Inter", Arial, sans-serif;
   --font-heading: "Helvetica Bold", "Helvetica", "Inter", Arial, sans-serif;
 
   --color-background: hsl(var(--background));
   --color-foreground: hsl(var(--foreground));
-  
+
   --color-brand-red: hsl(var(--brand-red));
   --color-brand-orange: hsl(var(--brand-orange));
   --color-brand-brown: hsl(var(--brand-brown));
@@ -36,22 +34,18 @@
   --color-border: hsl(var(--border));
   --color-input: hsl(var(--input));
   --color-ring: hsl(var(--ring));
-  
+
   --radius-sm: calc(var(--radius) - 4px);
   --radius-md: calc(var(--radius) - 2px);
   --radius-lg: var(--radius);
 }
 
 :root {
-  /* Action Red */
   --brand-red: 358 85% 55%;
-  /* Burnt Orange */
   --brand-orange: 24 90% 55%;
-  /* Earthy Brown */
   --brand-brown: 25 40% 25%;
 
-  /* Dark Theme Base */
-  --background: 20 10% 8%; /* Very dark warm grey/brown background */
+  --background: 20 10% 8%; 
   --foreground: 0 0% 98%;
 
   --card: 20 10% 12%;
@@ -60,16 +54,16 @@
   --popover: 20 10% 12%;
   --popover-foreground: 0 0% 98%;
 
-  --primary: 358 85% 55%; /* Action Red as primary */
+  --primary: 358 85% 55%; 
   --primary-foreground: 0 0% 100%;
 
-  --secondary: 25 40% 25%; /* Earthy Brown as secondary */
+  --secondary: 25 40% 25%; 
   --secondary-foreground: 0 0% 98%;
 
   --muted: 20 10% 20%;
   --muted-foreground: 20 5% 65%;
 
-  --accent: 24 90% 55%; /* Burnt Orange as accent */
+  --accent: 24 90% 55%; 
   --accent-foreground: 0 0% 100%;
 
   --destructive: 0 62% 30%;
@@ -79,9 +73,8 @@
   --input: 20 10% 20%;
   --ring: 358 85% 55%;
 
-  --radius: 0rem; /* Ultra-clean, sharp corners for that bold tech feel */
+  --radius: 0rem;
 
-  /* Glassmorphism Variables */
   --glass: 0 0% 100% / 0.05;
   --glass-border: 0 0% 100% / 0.1;
 }
@@ -91,23 +84,4 @@
     @apply border-border;
   }
   body {
-    @apply font-sans antialiased bg-background text-foreground selection:bg-brand-red selection:text-white;
-  }
-  h1, h2, h3, h4, h5, h6 {
-    @apply font-heading tracking-tight;
-  }
-}
-
-@layer utilities {
-  .glass-panel {
-    @apply bg-[hsla(0,0%,100%,0.03)] backdrop-blur-md border border-white/10 shadow-xl;
-  }
-  
-  .glass-card {
-    @apply bg-[hsla(0,0%,100%,0.05)] backdrop-blur-sm border border-white/5 hover:border-brand-orange/50 transition-colors duration-300;
-  }
-
-  .text-gradient {
-    @apply bg-clip-text text-transparent bg-gradient-to-r from-brand-red to-brand-orange;
-  }
-}
+    @apply font-sans antialiased bg-background text-foreground
