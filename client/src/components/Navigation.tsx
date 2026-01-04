@@ -18,11 +18,19 @@ export function Navigation() {
 
   const isHomePage = location === "/";
 
+  const calendly1on1Url = "https://calendly.com/lucasslclaxton/1-on-1-boxing-training";
+
   const openBooking = (type: "1on1" | "group") => {
-    setSessionType(type);
-    setIsModalOpen(true);
-    setBookingOpen(false);
-    setIsOpen(false);
+    if (type === "1on1") {
+      window.open(calendly1on1Url, "_blank");
+      setBookingOpen(false);
+      setIsOpen(false);
+    } else {
+      setSessionType(type);
+      setIsModalOpen(true);
+      setBookingOpen(false);
+      setIsOpen(false);
+    }
   };
 
   useEffect(() => {
