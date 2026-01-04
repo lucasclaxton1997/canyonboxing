@@ -5,7 +5,7 @@ import { PageLayout } from "@/components/PageLayout";
 import { BookingModal } from "@/components/BookingModal";
 import { useSEO } from "@/hooks/useSEO";
 import { MapPin, Phone, Mountain, TreePine, Sun } from "lucide-react";
-import heroVideo from "@assets/v09044g40000c69usirc77ub3di2bpo0_1767486899376.mov";
+import heroVideo from "@assets/v09044g40000c69usirc77ub3di2bpo0_1767487114092.mov";
 import residentImage from "@assets/generated_images/resident_backyard_boxing_training.png";
 import seasonalImage from "@assets/generated_images/rancher_in_flannel_boxing_barn.png";
 import secondHomeImage from "@assets/generated_images/second_homeowner_boxing_session.png";
