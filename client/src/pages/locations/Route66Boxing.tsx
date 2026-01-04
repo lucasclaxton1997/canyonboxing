@@ -5,6 +5,7 @@ import { PageLayout } from "@/components/PageLayout";
 import { BookingModal } from "@/components/BookingModal";
 import { useSEO } from "@/hooks/useSEO";
 import { MapPin, Phone, Route, Star } from "lucide-react";
+import heroVideo from "@assets/v09044g40000c793fs3c77u96l7a071g_1767485303318.mov";
 
 export default function Route66Boxing() {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -33,8 +34,26 @@ export default function Route66Boxing() {
   return (
     <PageLayout>
       {/* Hero Section */}
-      <section className="relative pt-40 pb-24 bg-zinc-950 border-b border-white/5">
-        <div className="container mx-auto px-6">
+      <section className="relative pt-40 pb-24 bg-zinc-950 border-b border-white/5 overflow-hidden">
+        {/* Background Video */}
+        <div className="absolute inset-0 z-0">
+          <div className="absolute inset-0 bg-gradient-to-t from-zinc-950 via-zinc-950/60 to-transparent z-10" />
+          <div className="absolute inset-0 bg-black/50 z-10" />
+          <video
+            autoPlay
+            muted
+            loop
+            playsInline
+            className="w-full h-full object-cover"
+            aria-label="Boxing training on Historic Route 66 Arizona - Mobile boxing personal training along the Mother Road"
+            data-testid="video-hero-background"
+          >
+            <source src={heroVideo} type="video/quicktime" />
+            Your browser does not support the video tag.
+          </video>
+        </div>
+        
+        <div className="container mx-auto px-6 relative z-20">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
