@@ -6,10 +6,10 @@ import { BookingModal } from "@/components/BookingModal";
 import { useSEO } from "@/hooks/useSEO";
 import { SEOSchema, CANYON_BOXING_BUSINESS } from "@/components/SEOSchema";
 import { MapPin, Phone, Mountain, TreePine, Sun } from "lucide-react";
- // Removed import: /v09044g40000c69usirc77ub3di2bpo0_1767487114092.mov";
- // Removed import: /generated_images/resident_backyard_boxing_training.png";
- // Removed import: /generated_images/rancher_in_flannel_boxing_barn.png";
- // Removed import: /generated_images/second_homeowner_boxing_session.png";
+import heroVideo from "@assets/v09044g40000c69usirc77ub3di2bpo0_1767487114092.mov";
+import residentImage from "@assets/generated_images/resident_backyard_boxing_training.png";
+import seasonalImage from "@assets/generated_images/rancher_in_flannel_boxing_barn.png";
+import secondHomeImage from "@assets/generated_images/second_homeowner_boxing_session.png";
 
 export default function NorthernArizona() {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -81,7 +81,7 @@ export default function NorthernArizona() {
             aria-label="Boxing training in Northern Arizona - Mobile boxing personal training in Coconino County high country"
             data-testid="video-hero-background"
           >
-            <source src="/canyonboxing/assets/generated_images/placeholder.png" type="video/quicktime" />
+            <source src={heroVideo} type="video/quicktime" />
             Your browser does not support the video tag.
           </video>
         </div>
@@ -258,7 +258,7 @@ export default function NorthernArizona() {
             >
               <div className="aspect-[4/3] overflow-hidden">
                 <img 
-                  src="/canyonboxing/assets/generated_images/placeholder.png" 
+                  src={residentImage} 
                   alt="Northern Arizona resident boxing training in backyard with mountain views" 
                   className="w-full h-full object-cover filter saturate-50 brightness-75"
                 />
@@ -277,7 +277,7 @@ export default function NorthernArizona() {
             >
               <div className="aspect-[4/3] overflow-hidden">
                 <img 
-                  src="/canyonboxing/assets/generated_images/placeholder.png" 
+                  src={seasonalImage} 
                   alt="Seasonal worker doing boxing workout outdoors near pine trees" 
                   className="w-full h-full object-cover filter saturate-50 brightness-75"
                 />
@@ -296,7 +296,7 @@ export default function NorthernArizona() {
             >
               <div className="aspect-[4/3] overflow-hidden">
                 <img 
-                  src="/canyonboxing/assets/generated_images/placeholder.png" 
+                  src={secondHomeImage} 
                   alt="Second homeowner boxing training in vacation home gym" 
                   className="w-full h-full object-cover filter saturate-50 brightness-75"
                 />

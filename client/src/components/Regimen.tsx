@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { Dumbbell, Shield, Activity, Zap, Timer, Users, Flame } from "lucide-react";
- // Removed import: /generated_images/boxing_padwork_action_shot.png";
+import trainingImage from "@assets/generated_images/boxing_padwork_action_shot.png";
 
 const trainingItems = [
   {

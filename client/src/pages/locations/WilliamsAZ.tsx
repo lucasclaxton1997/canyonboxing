@@ -6,7 +6,7 @@ import { BookingModal } from "@/components/BookingModal";
 import { useSEO } from "@/hooks/useSEO";
 import { SEOSchema, CANYON_BOXING_BUSINESS } from "@/components/SEOSchema";
 import { MapPin, Phone, Clock, Star } from "lucide-react";
- // Removed import: /v0f044gc0000ch9dgk3c77uall48heeg_1767486586273.mov";
+import heroVideo from "@assets/v0f044gc0000ch9dgk3c77uall48heeg_1767486586273.mov";
 
 export default function WilliamsAZ() {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -70,7 +70,7 @@ export default function WilliamsAZ() {
             aria-label="Boxing training in Williams Arizona - Mobile boxing personal training near Grand Canyon gateway"
             data-testid="video-hero-background"
           >
-            <source src="/canyonboxing/assets/generated_images/placeholder.png" type="video/quicktime" />
+            <source src={heroVideo} type="video/quicktime" />
             Your browser does not support the video tag.
           </video>
         </div>

@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { Truck, MapPin, Package, ShieldCheck } from "lucide-react";
- // Removed import: /video-output-4E8AFFB4-5A1C-457D-A122-BD3FE5338B76_1767328015012.mp4";
+import videoSrc from "@assets/video-output-4E8AFFB4-5A1C-457D-A122-BD3FE5338B76_1767328015012.mp4";
 
 const requirements = [
   {
@@ -27,7 +27,7 @@ export function MobileService() {
       <div className="absolute inset-0 z-0 opacity-40">
         <div className="absolute inset-0 bg-zinc-950/60 z-10" />
         <video 
-          src="/canyonboxing/assets/generated_images/placeholder.png"
+          src={videoSrc}
           autoPlay 
           muted 
           loop 

@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
- // Removed import: /video-output-4E8AFFB4-5A1C-457D-A122-BD3FE5338B76_1767328015012.mp4";
+import videoSrc from "@assets/video-output-4E8AFFB4-5A1C-457D-A122-BD3FE5338B76_1767328015012.mp4";
 
 export function VideoSection() {
   return (
@@ -13,7 +13,7 @@ export function VideoSection() {
         >
           <div className="absolute inset-0 bg-brand-red/10 group-hover:bg-transparent transition-colors duration-700 z-10 pointer-events-none" />
           <video 
-            src="/canyonboxing/assets/generated_images/placeholder.png"
+            src={videoSrc}
             autoPlay 
             muted 
             loop 

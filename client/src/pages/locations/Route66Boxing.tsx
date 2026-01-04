@@ -6,7 +6,7 @@ import { BookingModal } from "@/components/BookingModal";
 import { useSEO } from "@/hooks/useSEO";
 import { SEOSchema, CANYON_BOXING_BUSINESS } from "@/components/SEOSchema";
 import { MapPin, Phone, Route, Star } from "lucide-react";
- // Removed import: /v09044g40000c793fs3c77u96l7a071g_1767486729733.mov";
+import heroVideo from "@assets/v09044g40000c793fs3c77u96l7a071g_1767486729733.mov";
 
 export default function Route66Boxing() {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -68,7 +68,7 @@ export default function Route66Boxing() {
             aria-label="Boxing training on Historic Route 66 Arizona - Mobile boxing personal training along the Mother Road"
             data-testid="video-hero-background"
           >
-            <source src="/canyonboxing/assets/generated_images/placeholder.png" type="video/quicktime" />
+            <source src={heroVideo} type="video/quicktime" />
             Your browser does not support the video tag.
           </video>
         </div>
