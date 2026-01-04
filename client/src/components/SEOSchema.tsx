@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useId } from "react";
 
 interface LocalBusinessSchema {
   type: "LocalBusiness";
@@ -158,14 +158,11 @@ function generateBreadcrumbSchema(data: BreadcrumbSchema) {
 }
 
 export function SEOSchema({ schemas }: { schemas: SchemaType[] }) {
+  const uniqueId = useId();
+  
   useEffect(() => {
-    const scriptId = "seo-schema-script";
+    const scriptId = `seo-schema-${uniqueId.replace(/:/g, '-')}`;
     
-    const existingScript = document.getElementById(scriptId);
-    if (existingScript) {
-      existingScript.remove();
-    }
-
     const schemaObjects = schemas.map(schema => {
       switch (schema.type) {
         case "LocalBusiness":
@@ -195,7 +192,7 @@ export function SEOSchema({ schemas }: { schemas: SchemaType[] }) {
         scriptToRemove.remove();
       }
     };
-  }, [schemas]);
+  }, [schemas, uniqueId]);
 
   return null;
 }
