@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button";
 import { PageLayout } from "@/components/PageLayout";
 import { BookingModal } from "@/components/BookingModal";
 import { useSEO } from "@/hooks/useSEO";
+import { SEOSchema, CANYON_BOXING_BUSINESS } from "@/components/SEOSchema";
 import { MapPin, Phone, Route, Star } from "lucide-react";
 import heroVideo from "@assets/v09044g40000c793fs3c77u96l7a071g_1767486729733.mov";
 
@@ -33,6 +34,25 @@ export default function Route66Boxing() {
 
   return (
     <PageLayout>
+      <SEOSchema schemas={[
+        {
+          type: "LocalBusiness",
+          name: "Canyon Boxing Club - Route 66",
+          description: "Mobile boxing personal training along Historic Route 66 in Arizona. From Seligman to Flagstaff.",
+          telephone: CANYON_BOXING_BUSINESS.telephone,
+          url: "https://canyonboxing.com/route-66-boxing",
+          priceRange: CANYON_BOXING_BUSINESS.priceRange,
+          areaServed: ["Williams", "Seligman", "Ash Fork", "Parks", "Bellemont", "Flagstaff"]
+        },
+        {
+          type: "BreadcrumbList",
+          items: [
+            { name: "Home", url: "https://canyonboxing.com" },
+            { name: "Locations", url: "https://canyonboxing.com" },
+            { name: "Route 66", url: "https://canyonboxing.com/route-66-boxing" }
+          ]
+        }
+      ]} />
       {/* Hero Section */}
       <section className="relative pt-40 pb-24 bg-zinc-950 border-b border-white/5 overflow-hidden">
         {/* Background Video */}

@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button";
 import { PageLayout } from "@/components/PageLayout";
 import { BookingModal } from "@/components/BookingModal";
 import { useSEO } from "@/hooks/useSEO";
+import { SEOSchema, CANYON_BOXING_BUSINESS } from "@/components/SEOSchema";
 import { Users, Flame, Trophy, Heart, Check } from "lucide-react";
 import heroVideo from "@assets/v12044gd0000c7koifjc77u1cb8s2n4g_1767487982142.mov";
 
@@ -52,6 +53,24 @@ export default function GroupBoxing() {
 
   return (
     <PageLayout>
+      <SEOSchema schemas={[
+        {
+          type: "Service",
+          name: "Group Boxing Training",
+          description: "High-energy mobile group boxing workouts for teams, families, and friends. Up to 8 people per session.",
+          provider: CANYON_BOXING_BUSINESS.name,
+          areaServed: CANYON_BOXING_BUSINESS.areaServed,
+          serviceType: "Group Fitness Training"
+        },
+        {
+          type: "BreadcrumbList",
+          items: [
+            { name: "Home", url: "https://canyonboxing.com" },
+            { name: "Services", url: "https://canyonboxing.com/#pricing" },
+            { name: "Group Training", url: "https://canyonboxing.com/group-boxing" }
+          ]
+        }
+      ]} />
       {/* Hero Section */}
       <section className="relative pt-40 pb-24 bg-zinc-950 border-b border-white/5 overflow-hidden">
         {/* Background Video */}

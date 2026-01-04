@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button";
 import { PageLayout } from "@/components/PageLayout";
 import { BookingModal } from "@/components/BookingModal";
 import { useSEO } from "@/hooks/useSEO";
+import { SEOSchema, CANYON_BOXING_BUSINESS } from "@/components/SEOSchema";
 import { Check, Target, Brain, Zap, Clock } from "lucide-react";
 import videoSrc from "@assets/video-output-4E8AFFB4-5A1C-457D-A122-BD3FE5338B76_1767328015012.mp4";
 import beginnerImage from "@assets/generated_images/beginner_practicing_boxing_stance.png";
@@ -53,6 +54,24 @@ export default function OneOnOneBoxing() {
 
   return (
     <PageLayout>
+      <SEOSchema schemas={[
+        {
+          type: "Service",
+          name: "1-on-1 Boxing Personal Training",
+          description: "Elite one-on-one boxing personal training with personalized coaching tailored to your skill level and goals.",
+          provider: CANYON_BOXING_BUSINESS.name,
+          areaServed: CANYON_BOXING_BUSINESS.areaServed,
+          serviceType: "Personal Training"
+        },
+        {
+          type: "BreadcrumbList",
+          items: [
+            { name: "Home", url: "https://canyonboxing.com" },
+            { name: "Services", url: "https://canyonboxing.com/#pricing" },
+            { name: "1-on-1 Training", url: "https://canyonboxing.com/one-on-one-boxing" }
+          ]
+        }
+      ]} />
       {/* Hero Section */}
       <section className="relative pt-40 pb-24 bg-zinc-950 border-b border-white/5 overflow-hidden">
         {/* Background Video */}

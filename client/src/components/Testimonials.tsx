@@ -1,7 +1,8 @@
 import { motion } from "framer-motion";
 import { Quote, Star } from "lucide-react";
+import { SEOSchema } from "@/components/SEOSchema";
 
-const testimonials = [
+export const testimonials = [
   {
     name: "Robert K.",
     role: "Parent in Williams",
@@ -25,6 +26,13 @@ const testimonials = [
 export function Testimonials() {
   return (
     <section className="py-24 bg-zinc-950 relative overflow-hidden">
+      <SEOSchema schemas={testimonials.map(t => ({
+        type: "Review" as const,
+        author: t.name,
+        reviewBody: t.content,
+        reviewRating: t.stars,
+        itemReviewed: "Canyon Boxing Club"
+      }))} />
       <div className="absolute top-0 left-1/4 w-1/2 h-1/2 bg-brand-red/5 blur-3xl rounded-full pointer-events-none" />
       
       <div className="container mx-auto px-6 relative z-10">

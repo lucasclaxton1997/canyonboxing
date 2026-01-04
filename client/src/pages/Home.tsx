@@ -7,6 +7,7 @@ import { Testimonials } from "@/components/Testimonials";
 import { Pricing } from "@/components/Pricing";
 import { Footer } from "@/components/Footer";
 import { useSEO } from "@/hooks/useSEO";
+import { SEOSchema, CANYON_BOXING_BUSINESS } from "@/components/SEOSchema";
 
 export default function Home() {
   useSEO({
@@ -17,6 +18,18 @@ export default function Home() {
 
   return (
     <div className="min-h-screen bg-background text-foreground font-sans selection:bg-brand-red selection:text-white">
+      <SEOSchema schemas={[
+        {
+          type: "LocalBusiness",
+          ...CANYON_BOXING_BUSINESS
+        },
+        {
+          type: "AggregateRating",
+          ratingValue: 5,
+          reviewCount: 3,
+          itemReviewed: "Canyon Boxing Club"
+        }
+      ]} />
       <Navigation />
       <Hero />
       <About />

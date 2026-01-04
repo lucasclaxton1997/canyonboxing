@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button";
 import { PageLayout } from "@/components/PageLayout";
 import { BookingModal } from "@/components/BookingModal";
 import { useSEO } from "@/hooks/useSEO";
+import { SEOSchema, CANYON_BOXING_BUSINESS } from "@/components/SEOSchema";
 import { MapPin, Phone, Mountain, TreePine, Sun } from "lucide-react";
 import heroVideo from "@assets/v09044g40000c69usirc77ub3di2bpo0_1767487114092.mov";
 import residentImage from "@assets/generated_images/resident_backyard_boxing_training.png";
@@ -46,6 +47,25 @@ export default function NorthernArizona() {
 
   return (
     <PageLayout>
+      <SEOSchema schemas={[
+        {
+          type: "LocalBusiness",
+          name: "Canyon Boxing Club - Northern Arizona",
+          description: "Professional mobile boxing training serving Northern Arizona. From the ponderosa pines to the high desert.",
+          telephone: CANYON_BOXING_BUSINESS.telephone,
+          url: "https://canyonboxing.com/northern-arizona-boxing",
+          priceRange: CANYON_BOXING_BUSINESS.priceRange,
+          areaServed: ["Williams", "Flagstaff", "Tusayan", "Seligman", "Parks", "Bellemont", "Kachina Village"]
+        },
+        {
+          type: "BreadcrumbList",
+          items: [
+            { name: "Home", url: "https://canyonboxing.com" },
+            { name: "Locations", url: "https://canyonboxing.com" },
+            { name: "Northern Arizona", url: "https://canyonboxing.com/northern-arizona-boxing" }
+          ]
+        }
+      ]} />
       {/* Hero Section */}
       <section className="relative pt-40 pb-24 bg-zinc-950 border-b border-white/5 overflow-hidden">
         {/* Background Video */}

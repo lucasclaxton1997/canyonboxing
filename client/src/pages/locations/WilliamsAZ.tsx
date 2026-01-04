@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button";
 import { PageLayout } from "@/components/PageLayout";
 import { BookingModal } from "@/components/BookingModal";
 import { useSEO } from "@/hooks/useSEO";
+import { SEOSchema, CANYON_BOXING_BUSINESS } from "@/components/SEOSchema";
 import { MapPin, Phone, Clock, Star } from "lucide-react";
 import heroVideo from "@assets/v0f044gc0000ch9dgk3c77uall48heeg_1767486586273.mov";
 
@@ -35,6 +36,25 @@ export default function WilliamsAZ() {
 
   return (
     <PageLayout>
+      <SEOSchema schemas={[
+        {
+          type: "LocalBusiness",
+          name: "Canyon Boxing Club - Williams, AZ",
+          description: "Professional mobile boxing personal training serving Williams, Arizona. The only dedicated boxing coach in Williams.",
+          telephone: CANYON_BOXING_BUSINESS.telephone,
+          url: "https://canyonboxing.com/williams-az-boxing",
+          priceRange: CANYON_BOXING_BUSINESS.priceRange,
+          areaServed: ["Williams", "Parks", "Ash Fork", "Bellemont"]
+        },
+        {
+          type: "BreadcrumbList",
+          items: [
+            { name: "Home", url: "https://canyonboxing.com" },
+            { name: "Locations", url: "https://canyonboxing.com" },
+            { name: "Williams, AZ", url: "https://canyonboxing.com/williams-az-boxing" }
+          ]
+        }
+      ]} />
       {/* Hero Section */}
       <section className="relative pt-32 md:pt-40 pb-16 md:pb-24 bg-zinc-950 border-b border-white/5 min-h-fit overflow-hidden">
         {/* Background Video */}
