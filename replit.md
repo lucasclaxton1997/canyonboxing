@@ -42,6 +42,13 @@ SEO assets:
 - Copy: Use "personal training" not "training club", "Serving" not "Servicing"
 - Do NOT mention Singapore - use "elite technical precision" instead
 
+## GitHub Pages Deployment
+- Build command: `bash script/build-github.sh`
+- Build script: `script/build-github.ts` - sets base path to `/canyonboxing/` and fixes meta image URLs
+- Output: `dist/public/` - contains static site ready for GitHub Pages
+- URL: https://lucasclaxton1997.github.io/canyonboxing/
+- 404.html is auto-generated for SPA client-side routing
+
 ## TODO / Future Enhancements
 - [ ] Email notifications for new bookings (Resend integration - user to provide API key later)
 - [ ] Real payment processing (Stripe integration)
