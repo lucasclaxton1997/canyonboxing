@@ -1,9 +1,10 @@
-    @import "tailwindcss";
-    @plugin "tailwindcss-animate";
+@import "tailwindcss";
+@source "../src";
+@plugin "tailwindcss-animate";
 
-    @custom-variant dark (&:is(.dark *));
+@custom-variant dark (&:is(.dark *));
 
-    @theme {
+@theme {
       --font-sans: "Helvetica Neue", Helvetica, "Inter", Arial, sans-serif;
       --font-heading: "Helvetica Bold", "Helvetica", "Inter", Arial, sans-serif;
 
