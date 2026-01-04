@@ -161,7 +161,7 @@ export default function GroupBoxing() {
                 </p>
               </div>
               <p className="text-sm text-gray-500 mb-6">
-                All bookings require a $10 deposit. Groups must be formed prior to booking.
+                Your first session is 50% off! Groups must be formed prior to booking.
               </p>
               <Button 
                 className="w-full bg-brand-orange hover:bg-orange-600 text-white rounded-none font-bold uppercase tracking-widest"

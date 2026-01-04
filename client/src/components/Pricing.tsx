@@ -22,7 +22,7 @@ export function Pricing() {
           </h2>
           <p className="text-gray-400 max-w-xl mx-auto font-light">
             Professional coaching tailored to your goals. 
-            All bookings require a <span className="text-brand-orange font-bold">$10 deposit</span>.
+            <span className="text-brand-orange font-bold">First session is 50% off!</span>
           </p>
         </div>
 

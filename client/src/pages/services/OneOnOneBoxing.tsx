@@ -165,7 +165,7 @@ export default function OneOnOneBoxing() {
                 </div>
               </div>
               <p className="text-sm text-gray-500 mb-6">
-                All bookings require a $10 deposit, applied to your session fee.
+                Your first session is 50% off!
               </p>
               <Button 
                 className="w-full bg-white text-black hover:bg-gray-200 rounded-none font-bold uppercase tracking-widest"
